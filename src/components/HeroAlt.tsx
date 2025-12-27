@@ -67,10 +67,10 @@ const HeroAlt = () => {
       />
 
       {/* Content wrapper - centered with max-width */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-8 lg:py-0">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left - Text Content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left w-full lg:w-1/2 lg:flex-shrink-0">
+          <div className="order-1 lg:order-1 text-center lg:text-left w-full lg:w-1/2 lg:flex-shrink-0 pt-4 lg:pt-0">
             <h2 
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 opacity-0 animate-fade-in"
               style={{ animationDelay: '0.1s' }}
@@ -104,7 +104,7 @@ const HeroAlt = () => {
           </div>
 
           {/* Right - Radial Orbital Timeline */}
-          <div className="order-1 lg:order-2 w-full lg:w-1/2 flex justify-center py-6 lg:py-0">
+          <div className="order-2 lg:order-2 w-full lg:w-1/2 flex justify-center py-4 lg:py-0">
             <div 
               className="relative w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] animate-fade-in"
               style={{ animationDelay: '0.2s' }}

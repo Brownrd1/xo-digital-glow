@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import logoMark from "@/assets/logo-mark.png";
+import logoMark from "@/assets/logo-mark.svg";
 
 const footerLinks = {
   company: [
@@ -46,16 +46,16 @@ const Footer = () => {
               <img
                 src={logoMark}
                 alt="XO Digital Systems Logo"
-                className="w-10 h-10 object-contain"
+                className="w-[46px] h-[46px] object-contain"
               />
-              <div>
+              <span className="flex items-baseline gap-1.5">
                 <span className="text-lg font-bold text-foreground tracking-tight">
                   XO DIGITAL
                 </span>
-                <span className="block text-[10px] font-medium text-muted-foreground tracking-[0.2em]">
+                <span className="text-[10px] font-medium text-muted-foreground tracking-[0.2em]">
                   SYSTEMS
                 </span>
-              </div>
+              </span>
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">

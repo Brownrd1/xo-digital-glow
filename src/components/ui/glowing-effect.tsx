@@ -169,9 +169,14 @@ const GlowingEffect = memo(
               "after:[background-attachment:fixed]",
               "after:opacity-[var(--active)]",
               "after:transition-opacity after:duration-300",
+              // Standard mask properties
               "after:[mask-clip:padding-box,border-box]",
               "after:[mask-composite:intersect]",
-              "after:[mask:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,#fff_calc(var(--spread)*1deg),transparent_calc(var(--spread)*2deg))]"
+              "after:[mask:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,#fff_calc(var(--spread)*1deg),transparent_calc(var(--spread)*2deg))]",
+              // WebKit prefixed mask properties for Safari/Chrome
+              "after:[-webkit-mask-clip:padding-box,border-box]",
+              "after:[-webkit-mask-composite:source-in]",
+              "after:[-webkit-mask:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,#fff_calc(var(--spread)*1deg),transparent_calc(var(--spread)*2deg))]"
             )}
           />
         </div>

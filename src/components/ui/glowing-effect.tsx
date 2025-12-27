@@ -135,7 +135,8 @@ const GlowingEffect = memo(
               "--blur": `${blur}px`,
               "--spread": spread,
               "--start": "0",
-              "--active": "0",
+              // Default to a subtle visible glow when enabled; pointer movement will set it to 1
+              "--active": glow ? "0.35" : "0",
               "--glowingeffect-border-width": `${borderWidth}px`,
               "--repeating-conic-gradient-times": "5",
               "--gradient":

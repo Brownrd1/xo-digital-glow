@@ -37,11 +37,16 @@
 
     --radius: 0.75rem;
 
-    /* Custom XO Colors */
+    /* Custom XO Colors - Exact Brand Values */
+    /* Graphite Black: #0A0D12 */
     --graphite: 216 26% 5%;
+    /* Steel Blue: #1F3A5F */
     --steel-blue: 214 51% 25%;
+    /* Off-White: #F4F6F8 */
     --off-white: 210 25% 97%;
+    /* Signal Indigo: #4F46E5 */
     --indigo: 243 76% 59%;
+    /* Slate Grey: #8B93A7 */
     --slate: 222 14% 60%;
 
     /* Glow effects */

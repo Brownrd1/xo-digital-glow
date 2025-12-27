@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import logoMark from "@/assets/logo-mark.png";
 
 const footerLinks = {
   company: [
@@ -42,37 +43,11 @@ const Footer = () => {
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-3 mb-6">
-              <svg
-                viewBox="0 0 48 48"
-                className="w-10 h-10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="24"
-                  cy="24"
-                  r="20"
-                  stroke="hsl(var(--off-white))"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M16 16L32 32M32 16L16 32"
-                  stroke="hsl(var(--off-white))"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M34 12L40 6"
-                  stroke="hsl(var(--indigo))"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <polygon
-                  points="40,4 42,8 38,8"
-                  fill="hsl(var(--indigo))"
-                />
-              </svg>
+              <img
+                src={logoMark}
+                alt="XO Digital Systems Logo"
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <span className="text-lg font-bold text-foreground tracking-tight">
                   XO DIGITAL

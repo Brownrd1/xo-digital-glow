@@ -78,8 +78,8 @@ const FeatureCards = () => {
                 {/* Inner card with solid background - sits on top of glow */}
                 <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl border border-border/50 bg-background p-6">
                   {/* Icon container */}
-                  <div className="w-fit rounded-lg border border-border bg-muted p-2">
-                    <feature.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
+                  <div className="w-fit rounded-lg bg-primary p-2">
+                    <feature.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
                   </div>
                   
                   {/* Content */}

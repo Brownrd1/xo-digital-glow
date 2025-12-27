@@ -1,32 +1,32 @@
 import { Button } from "@/components/ui/button";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-import { Lightbulb, Palette, Code2, TestTube, Rocket } from "lucide-react";
+import { Globe, Code2, Megaphone, Search, BarChart3 } from "lucide-react";
 
 const timelineNodes = [
   {
-    icon: <Lightbulb className="w-4 h-4" />,
-    title: "Planning",
-    description: "Strategy & research",
-  },
-  {
-    icon: <Palette className="w-4 h-4" />,
-    title: "Design",
-    description: "UI/UX creation",
+    icon: <Globe className="w-4 h-4" />,
+    title: "Web Design",
+    description: "Your platform",
   },
   {
     icon: <Code2 className="w-4 h-4" />,
-    title: "Development",
-    description: "Build & integrate",
+    title: "Software Development",
+    description: "Advanced tools for business",
   },
   {
-    icon: <TestTube className="w-4 h-4" />,
-    title: "Testing",
-    description: "Quality assurance",
+    icon: <Megaphone className="w-4 h-4" />,
+    title: "Marketing",
+    description: "Build your brand",
   },
   {
-    icon: <Rocket className="w-4 h-4" />,
-    title: "Launch",
-    description: "Deploy & scale",
+    icon: <Search className="w-4 h-4" />,
+    title: "SEO",
+    description: "Get seen online",
+  },
+  {
+    icon: <BarChart3 className="w-4 h-4" />,
+    title: "Data Analysis",
+    description: "Understand your market",
   },
 ];
 

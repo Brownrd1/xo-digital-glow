@@ -7,7 +7,7 @@ const timelineNodes = [
     id: 1,
     icon: <Globe className="w-5 h-5" />,
     title: "Web Design",
-    description: "Your platform",
+    description: "Design your platform",
     status: "completed" as const,
     energy: 100,
     relatedIds: [2, 4],

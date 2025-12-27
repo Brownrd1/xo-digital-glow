@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface TimelineNode {
+  id: number;
   icon: React.ReactNode;
   title: string;
   description: string;
+  status: "completed" | "in-progress" | "pending";
+  energy: number;
+  relatedIds?: number[];
 }
 
 interface RadialOrbitalTimelineProps {
@@ -12,73 +16,203 @@ interface RadialOrbitalTimelineProps {
   className?: string;
 }
 
+const statusColors = {
+  completed: "bg-green-500",
+  "in-progress": "bg-amber-500",
+  pending: "bg-muted-foreground/50",
+};
+
+const statusLabels = {
+  completed: "Complete",
+  "in-progress": "Active",
+  pending: "Pending",
+};
+
 const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps) => {
   const [mounted, setMounted] = useState(false);
+  const [selectedNode, setSelectedNode] = useState<number | null>(null);
+  const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const angleStep = 360 / nodes.length;
+  const radius = 42;
+
+  // Calculate node positions for connection lines
+  const getNodePosition = (index: number) => {
+    const angle = (angleStep * index - 90) * (Math.PI / 180);
+    return {
+      x: 50 + radius * Math.cos(angle),
+      y: 50 + radius * Math.sin(angle),
+    };
+  };
+
+  // Get related connections
+  const connections: { from: number; to: number }[] = [];
+  nodes.forEach((node) => {
+    if (node.relatedIds) {
+      node.relatedIds.forEach((relatedId) => {
+        const fromIndex = nodes.findIndex((n) => n.id === node.id);
+        const toIndex = nodes.findIndex((n) => n.id === relatedId);
+        if (fromIndex !== -1 && toIndex !== -1) {
+          // Avoid duplicate connections
+          const exists = connections.some(
+            (c) =>
+              (c.from === fromIndex && c.to === toIndex) ||
+              (c.from === toIndex && c.to === fromIndex)
+          );
+          if (!exists) {
+            connections.push({ from: fromIndex, to: toIndex });
+          }
+        }
+      });
+    }
+  });
+
+  const activeNode = hoveredNode ?? selectedNode;
 
   return (
-    <div className={cn("relative w-full aspect-square max-w-[500px] mx-auto", className)}>
+    <div className={cn("relative w-full aspect-square max-w-[600px] mx-auto", className)}>
+      {/* Connection lines SVG */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        {connections.map(({ from, to }, index) => {
+          const fromPos = getNodePosition(from);
+          const toPos = getNodePosition(to);
+          const isActive =
+            activeNode !== null &&
+            (nodes[from].id === activeNode || nodes[to].id === activeNode);
+
+          return (
+            <line
+              key={index}
+              x1={`${fromPos.x}%`}
+              y1={`${fromPos.y}%`}
+              x2={`${toPos.x}%`}
+              y2={`${toPos.y}%`}
+              stroke={isActive ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.2)"}
+              strokeWidth={isActive ? 2 : 1}
+              strokeDasharray={isActive ? "none" : "4 4"}
+              className="transition-all duration-300"
+            />
+          );
+        })}
+      </svg>
+
       {/* Central glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-24 h-24 rounded-full bg-primary/20 blur-xl" />
+        <div className="w-28 h-28 rounded-full bg-primary/20 blur-2xl" />
       </div>
 
       {/* Central hub */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-glow-indigo">
-          <div className="w-8 h-8 rounded-full bg-background/20" />
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-glow-indigo">
+          <div className="w-10 h-10 rounded-full bg-background/20 backdrop-blur-sm" />
         </div>
       </div>
 
       {/* Orbit rings */}
-      <div className="absolute inset-[15%] rounded-full border border-primary/10" />
-      <div className="absolute inset-[5%] rounded-full border border-primary/5" />
+      <div className="absolute inset-[12%] rounded-full border border-primary/10" />
+      <div className="absolute inset-[3%] rounded-full border border-primary/5" />
 
       {/* Orbiting nodes container */}
-      <div 
+      <div
         className={cn(
-          "absolute inset-0 animate-orbit",
+          "absolute inset-0 animate-orbit z-20",
           mounted ? "opacity-100" : "opacity-0"
         )}
-        style={{ 
+        style={{
           transition: "opacity 0.5s ease-out",
         }}
       >
         {nodes.map((node, index) => {
-          const angle = (angleStep * index - 90) * (Math.PI / 180);
-          const radius = 42; // percentage from center
-          const x = 50 + radius * Math.cos(angle);
-          const y = 50 + radius * Math.sin(angle);
+          const pos = getNodePosition(index);
+          const isActive = activeNode === node.id;
+          const isRelated =
+            activeNode !== null &&
+            nodes.find((n) => n.id === activeNode)?.relatedIds?.includes(node.id);
 
           return (
             <div
-              key={index}
+              key={node.id}
               className="absolute animate-counter-orbit"
               style={{
-                left: `${x}%`,
-                top: `${y}%`,
+                left: `${pos.x}%`,
+                top: `${pos.y}%`,
                 transform: "translate(-50%, -50%)",
               }}
             >
               {/* Node card */}
-              <div className="group relative">
+              <div
+                className={cn(
+                  "group relative cursor-pointer transition-all duration-300",
+                  isActive && "scale-110 z-30",
+                  isRelated && "scale-105"
+                )}
+                onClick={() => setSelectedNode(selectedNode === node.id ? null : node.id)}
+                onMouseEnter={() => setHoveredNode(node.id)}
+                onMouseLeave={() => setHoveredNode(null)}
+              >
                 {/* Glow effect */}
-                <div className="absolute -inset-2 bg-primary/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+                <div
+                  className={cn(
+                    "absolute -inset-3 rounded-2xl blur-xl transition-opacity duration-300",
+                    isActive ? "opacity-100 bg-primary/30" : "opacity-0 bg-primary/20 group-hover:opacity-60"
+                  )}
+                />
+
                 {/* Card */}
-                <div className="relative bg-card/80 backdrop-blur-sm border border-primary/20 rounded-xl p-3 min-w-[120px] hover:border-primary/40 transition-all duration-300 hover:scale-105">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                <div
+                  className={cn(
+                    "relative bg-card/90 backdrop-blur-md border rounded-2xl p-4 min-w-[150px] max-w-[160px] transition-all duration-300",
+                    isActive
+                      ? "border-primary shadow-glow-indigo"
+                      : isRelated
+                      ? "border-primary/40"
+                      : "border-primary/20 hover:border-primary/40"
+                  )}
+                >
+                  {/* Header with icon and status */}
+                  <div className="flex items-center justify-between mb-2">
+                    <div
+                      className={cn(
+                        "w-10 h-10 rounded-xl flex items-center justify-center text-primary transition-colors",
+                        isActive ? "bg-primary/20" : "bg-primary/10"
+                      )}
+                    >
                       {node.icon}
                     </div>
+                    {/* Status badge */}
+                    <div className="flex items-center gap-1.5">
+                      <div className={cn("w-2 h-2 rounded-full", statusColors[node.status])} />
+                      <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wide">
+                        {statusLabels[node.status]}
+                      </span>
+                    </div>
                   </div>
-                  <h4 className="text-sm font-semibold text-foreground">{node.title}</h4>
-                  <p className="text-xs text-muted-foreground line-clamp-2">{node.description}</p>
+
+                  {/* Title */}
+                  <h4 className="text-sm font-semibold text-foreground mb-1">{node.title}</h4>
+
+                  {/* Description */}
+                  <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
+                    {node.description}
+                  </p>
+
+                  {/* Energy bar */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-muted-foreground font-medium">Energy</span>
+                      <span className="text-[10px] text-primary font-semibold">{node.energy}%</span>
+                    </div>
+                    <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-500"
+                        style={{ width: `${node.energy}%` }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,14 +222,15 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
 
       {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 rounded-full bg-primary/40 animate-pulse"
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/30 animate-pulse"
             style={{
-              left: `${20 + Math.random() * 60}%`,
-              top: `${20 + Math.random() * 60}%`,
-              animationDelay: `${i * 0.5}s`,
+              left: `${15 + Math.random() * 70}%`,
+              top: `${15 + Math.random() * 70}%`,
+              animationDelay: `${i * 0.4}s`,
+              animationDuration: `${2 + Math.random() * 2}s`,
             }}
           />
         ))}

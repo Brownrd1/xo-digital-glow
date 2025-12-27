@@ -60,34 +60,37 @@ const FeatureCards = () => {
           {features.map((feature, index) => (
             <li
               key={feature.title}
-              className="relative h-full list-none opacity-0 animate-fade-in-up"
+              className="min-h-[14rem] list-none opacity-0 animate-fade-in-up"
               style={{ animationDelay: `${0.1 * index}s` }}
             >
-              <div className="relative h-full rounded-2xl border border-white/10 p-px">
-                {/* Glowing border effect */}
+              {/* Outer wrapper with p-2 padding to create space for glow */}
+              <div className="relative h-full rounded-2xl border border-border p-2">
+                {/* Glowing border effect - positioned in the padding gap */}
                 <GlowingEffect
                   spread={40}
                   glow={true}
                   disabled={false}
                   proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={2}
+                  borderWidth={3}
                 />
                 
-                {/* Card content */}
-                <div className="relative h-full bg-neutral-950/80 backdrop-blur-sm rounded-2xl p-6">
-                  {/* Icon */}
-                  <div className="mb-4">
-                    <feature.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                {/* Inner card with solid background - sits on top of glow */}
+                <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl border border-border/50 bg-background p-6">
+                  {/* Icon container */}
+                  <div className="w-fit rounded-lg border border-border bg-muted p-2">
+                    <feature.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
                   </div>
-
+                  
                   {/* Content */}
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </li>

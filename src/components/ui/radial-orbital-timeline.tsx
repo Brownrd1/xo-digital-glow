@@ -101,18 +101,31 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
         })}
       </svg>
 
-      {/* Central glow */}
+      {/* Multi-layer central glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-48 h-48 rounded-full bg-primary/20 blur-3xl" />
+        <div className="w-72 h-72 rounded-full bg-primary/10 blur-[100px] center-pulse" />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-56 h-56 rounded-full bg-background/60 blur-3xl" />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-44 h-44 rounded-full bg-primary/15 blur-2xl center-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* Central logo */}
+      {/* Central logo with radial gradient fade */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <img 
-          src={xoLogo} 
-          alt="XO Logo" 
-          className="w-40 h-40"
-        />
+        <div 
+          className="w-52 h-52 flex items-center justify-center rounded-full"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--background)) 35%, hsl(var(--background) / 0.6) 55%, transparent 75%)'
+          }}
+        >
+          <img 
+            src={xoLogo} 
+            alt="XO Logo" 
+            className="w-40 h-40"
+          />
+        </div>
       </div>
 
       {/* Orbit rings */}

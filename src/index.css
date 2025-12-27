@@ -165,28 +165,16 @@
     inset: calc(var(--glowingeffect-border-width, 2px) * -1);
     border-radius: inherit;
     border: var(--glowingeffect-border-width, 2px) solid transparent;
+    
+    /* Correct background syntax for border-only effect */
     background: 
-      padding-box padding-box transparent,
-      border-box border-box var(--gradient);
-    background-attachment: fixed;
+      linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      var(--gradient) border-box;
+    
     opacity: var(--active, 0);
     transition: opacity 0.3s ease;
     
-    /* Mask for the sweeping spotlight effect */
-    mask-clip: padding-box, border-box;
-    mask-composite: intersect;
-    mask: 
-      linear-gradient(transparent, transparent),
-      conic-gradient(
-        from calc((var(--start, 0) - var(--spread, 20)) * 1deg),
-        transparent 0deg,
-        #fff calc(var(--spread, 20) * 1deg),
-        transparent calc(var(--spread, 20) * 2deg)
-      );
-    
-    /* WebKit prefixed for Safari/Chrome */
-    -webkit-mask-clip: padding-box, border-box;
-    -webkit-mask-composite: source-in;
+    /* WebKit prefixed FIRST (for Safari/Chrome) */
     -webkit-mask: 
       linear-gradient(transparent, transparent),
       conic-gradient(
@@ -195,6 +183,20 @@
         #fff calc(var(--spread, 20) * 1deg),
         transparent calc(var(--spread, 20) * 2deg)
       );
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: source-in;
+    
+    /* Standard mask AFTER (newer browsers) */
+    mask: 
+      linear-gradient(transparent, transparent),
+      conic-gradient(
+        from calc((var(--start, 0) - var(--spread, 20)) * 1deg),
+        transparent 0deg,
+        #fff calc(var(--spread, 20) * 1deg),
+        transparent calc(var(--spread, 20) * 2deg)
+      );
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
   }
 }
 

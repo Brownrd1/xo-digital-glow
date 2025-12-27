@@ -203,7 +203,7 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
                   {/* Energy bar */}
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-muted-foreground font-medium">Energy</span>
+                      <span className="text-[10px] text-muted-foreground font-medium">Progress</span>
                       <span className="text-[10px] text-primary font-semibold">{node.energy}%</span>
                     </div>
                     <div className="h-1.5 bg-muted rounded-full overflow-hidden">

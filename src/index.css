@@ -162,7 +162,7 @@
 @layer utilities {
   /* Glowing effect component styles */
   .glow {
-    @apply absolute inset-0;
+    @apply absolute inset-0 w-full h-full;
   }
 
   /* Reduce motion support */

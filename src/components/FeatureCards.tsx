@@ -56,41 +56,43 @@ const FeatureCards = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <div
+            <li
               key={feature.title}
-              className="relative rounded-xl opacity-0 animate-fade-in-up"
+              className="relative h-full list-none opacity-0 animate-fade-in-up"
               style={{ animationDelay: `${0.1 * index}s` }}
             >
-              {/* Glowing border effect */}
-              <GlowingEffect
-                spread={40}
-                glow={true}
-                disabled={false}
-                proximity={64}
-                inactiveZone={0.01}
-                borderWidth={2}
-              />
-              
-              {/* Card content */}
-              <div className="relative h-full bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50">
-                {/* Icon */}
-                <div className="mb-4">
-                  <feature.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
-                </div>
+              <div className="relative h-full rounded-2xl border border-white/10 p-px">
+                {/* Glowing border effect */}
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={2}
+                />
+                
+                {/* Card content */}
+                <div className="relative h-full bg-neutral-950/80 backdrop-blur-sm rounded-2xl p-6">
+                  {/* Icon */}
+                  <div className="mb-4">
+                    <feature.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                  </div>
 
-                {/* Content */}
-                <h3 className="text-xl font-semibold mb-2 text-foreground">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

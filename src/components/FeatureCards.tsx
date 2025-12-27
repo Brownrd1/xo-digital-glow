@@ -73,7 +73,6 @@ const FeatureCards = () => {
                   proximity={64}
                   inactiveZone={0.01}
                   borderWidth={3}
-                  debug={true}
                 />
                 
                 {/* Inner card with solid background - sits on top of glow */}

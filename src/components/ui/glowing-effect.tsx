@@ -151,7 +151,7 @@ const GlowingEffect = memo(
               "--spread": spread,
               "--start": "0",
               // Default to a subtle visible glow when enabled; pointer movement will set it to 1
-              "--active": glow ? "0.35" : "0",
+              "--active": glow ? "0.5" : "0",
               "--glowingeffect-border-width": `${borderWidth}px`,
               "--repeating-conic-gradient-times": "5",
               "--gradient":
@@ -161,10 +161,10 @@ const GlowingEffect = memo(
                       var(--black),
                       var(--black) calc(25% / var(--repeating-conic-gradient-times))
                     )`
-                  : `radial-gradient(ellipse at 50% 0%, hsla(0, 0%, 100%, 0.6), transparent 50%),
-                     radial-gradient(ellipse at 50% 100%, hsla(336, 80%, 48%, 0.7), transparent 50%),
-                     radial-gradient(ellipse at 0% 50%, hsla(49, 98%, 60%, 0.7), transparent 50%),
-                     radial-gradient(ellipse at 100% 50%, hsla(168, 100%, 36%, 0.7), transparent 50%)`,
+                  : `radial-gradient(ellipse at 50% 0%, hsla(0, 0%, 100%, 1), transparent 60%),
+                     radial-gradient(ellipse at 50% 100%, hsla(336, 80%, 60%, 1), transparent 60%),
+                     radial-gradient(ellipse at 0% 50%, hsla(49, 98%, 65%, 1), transparent 60%),
+                     radial-gradient(ellipse at 100% 50%, hsla(168, 100%, 50%, 1), transparent 60%)`,
             } as React.CSSProperties
           }
           className={cn(

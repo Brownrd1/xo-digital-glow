@@ -18,7 +18,7 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-6 items-center">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-6 items-center">
           {/* Left - Content */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
             <h1 
@@ -56,7 +56,7 @@ const Hero = () => {
           {/* Right - Hero Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div 
-              className="relative w-full max-w-2xl lg:-mr-12 xl:-mr-20 animate-fade-in"
+              className="relative w-full lg:-mr-16 xl:-mr-24 animate-fade-in"
               style={{ animationDelay: '0.2s' }}
             >
               {/* Glow background */}

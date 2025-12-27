@@ -117,7 +117,7 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
         <div 
           className="w-52 h-52 flex items-center justify-center rounded-full"
           style={{
-            background: 'radial-gradient(circle, hsl(var(--background)) 35%, hsl(var(--background) / 0.6) 55%, transparent 75%)'
+            background: 'radial-gradient(circle, hsl(243 76% 59% / 0.3) 0%, hsl(243 76% 59% / 0.15) 40%, transparent 70%)'
           }}
         >
           <img 

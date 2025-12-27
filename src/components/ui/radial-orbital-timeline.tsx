@@ -103,13 +103,13 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
 
       {/* Multi-layer central glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-72 h-72 rounded-full bg-primary/10 blur-[100px] center-pulse" />
+        <div className="w-72 h-72 rounded-full bg-primary/25 blur-[100px] center-pulse" />
       </div>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-56 h-56 rounded-full bg-background/60 blur-3xl" />
       </div>
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-44 h-44 rounded-full bg-primary/15 blur-2xl center-pulse" style={{ animationDelay: '2s' }} />
+        <div className="w-44 h-44 rounded-full bg-primary/30 blur-2xl center-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Central logo with radial gradient fade */}
@@ -117,7 +117,7 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
         <div 
           className="w-52 h-52 flex items-center justify-center rounded-full"
           style={{
-            background: 'radial-gradient(circle, hsl(243 76% 59% / 0.3) 0%, hsl(243 76% 59% / 0.15) 40%, transparent 70%)'
+            background: 'radial-gradient(circle, hsl(243 76% 59% / 0.6) 0%, hsl(243 76% 59% / 0.35) 45%, transparent 75%)'
           }}
         >
           <img 

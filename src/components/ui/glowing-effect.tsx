@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { animate } from "motion/react";
 
@@ -15,6 +15,7 @@ interface GlowingEffectProps {
   disabled?: boolean;
   movementDuration?: number;
   borderWidth?: number;
+  debug?: boolean;
 }
 
 const GlowingEffect = memo(
@@ -29,10 +30,12 @@ const GlowingEffect = memo(
     movementDuration = 2,
     borderWidth = 1,
     disabled = true,
+    debug = false,
   }: GlowingEffectProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number>(0);
+    const [debugValues, setDebugValues] = useState({ active: "0", start: "0" });
 
     const handleMove = useCallback(
       (e?: MouseEvent | { x: number; y: number }) => {
@@ -91,11 +94,18 @@ const GlowingEffect = memo(
             ease: [0.16, 1, 0.3, 1],
             onUpdate: (value) => {
               element.style.setProperty("--start", String(value));
+              // Update debug values
+              if (debug) {
+                setDebugValues({
+                  active: element.style.getPropertyValue("--active") || "0",
+                  start: String(value),
+                });
+              }
             },
           });
         });
       },
-      [inactiveZone, proximity, movementDuration]
+      [inactiveZone, proximity, movementDuration, debug]
     );
 
     useEffect(() => {
@@ -120,6 +130,11 @@ const GlowingEffect = memo(
 
     return (
       <>
+        {debug && (
+          <div className="absolute -top-8 left-0 z-50 px-2 py-1 bg-black/90 text-white text-xs font-mono rounded whitespace-nowrap pointer-events-none">
+            active: {debugValues.active} | start: {parseFloat(debugValues.start).toFixed(1)}°
+          </div>
+        )}
         <div
           className={cn(
             "pointer-events-none absolute -inset-px hidden rounded-[inherit] border opacity-0 transition-opacity",

@@ -103,18 +103,16 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
 
       {/* Central glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-28 h-28 rounded-full bg-primary/20 blur-2xl" />
+        <div className="w-48 h-48 rounded-full bg-primary/20 blur-3xl" />
       </div>
 
-      {/* Central hub */}
+      {/* Central logo */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-glow-indigo">
-          <img 
-            src={xoLogo} 
-            alt="XO Logo" 
-            className="w-12 h-12"
-          />
-        </div>
+        <img 
+          src={xoLogo} 
+          alt="XO Logo" 
+          className="w-40 h-40"
+        />
       </div>
 
       {/* Orbit rings */}

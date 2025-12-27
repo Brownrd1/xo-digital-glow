@@ -17,10 +17,11 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-6 items-center">
-          {/* Left - Content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
+      {/* Content wrapper - full width */}
+      <div className="relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center">
+          {/* Left - Text Content (constrained width) */}
+          <div className="order-2 lg:order-1 text-center lg:text-left px-6 lg:pl-12 xl:pl-24 2xl:pl-32 lg:pr-8 w-full lg:w-[40%] lg:max-w-[600px] lg:flex-shrink-0">
             <h1 
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 opacity-0 animate-fade-in"
               style={{ animationDelay: '0.1s' }}
@@ -33,7 +34,7 @@ const Hero = () => {
             </h1>
             
             <p 
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 opacity-0 animate-fade-in"
+              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 opacity-0 animate-fade-in"
               style={{ animationDelay: '0.3s' }}
             >
               We build and optimise ecommerce platforms using software, marketing, 
@@ -53,14 +54,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right - Hero Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+          {/* Right - Hero Image (bleeds to edge) */}
+          <div className="order-1 lg:order-2 w-full lg:w-[60%] lg:flex-grow flex justify-center lg:justify-end">
             <div 
-              className="relative w-full lg:-mr-16 xl:-mr-24 animate-fade-in"
+              className="relative w-full max-w-[500px] lg:max-w-none lg:w-[clamp(500px,65vw,1200px)] lg:-mr-24 xl:-mr-32 2xl:-mr-48 animate-fade-in"
               style={{ animationDelay: '0.2s' }}
             >
-              {/* Glow background */}
-              <div className="absolute -inset-16 bg-primary/20 blur-3xl rounded-full" />
+              {/* Glow background - positioned more to the right */}
+              <div className="absolute -inset-8 lg:-inset-16 bg-primary/15 blur-[80px] rounded-full translate-x-[10%]" />
               
               {/* Hero image with float and glow */}
               <img

@@ -159,26 +159,7 @@ const GlowingEffect = memo(
             disabled && "!hidden"
           )}
         >
-          <div
-            className={cn(
-              "glow",
-              "rounded-[inherit]",
-              'after:content-[""] after:rounded-[inherit] after:absolute after:inset-[calc(var(--glowingeffect-border-width)*-1)]',
-              "after:[border:var(--glowingeffect-border-width)_solid_transparent]",
-              "after:[background:padding-box_padding-box_transparent,border-box_border-box_var(--gradient)]",
-              "after:[background-attachment:fixed]",
-              "after:opacity-[var(--active)]",
-              "after:transition-opacity after:duration-300",
-              // Standard mask properties
-              "after:[mask-clip:padding-box,border-box]",
-              "after:[mask-composite:intersect]",
-              "after:[mask:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,#fff_calc(var(--spread)*1deg),transparent_calc(var(--spread)*2deg))]",
-              // WebKit prefixed mask properties for Safari/Chrome
-              "after:[-webkit-mask-clip:padding-box,border-box]",
-              "after:[-webkit-mask-composite:source-in]",
-              "after:[-webkit-mask:linear-gradient(transparent,transparent),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),transparent_0deg,#fff_calc(var(--spread)*1deg),transparent_calc(var(--spread)*2deg))]"
-            )}
-          />
+          <div className="glow glowing-effect-glow absolute inset-0 rounded-[inherit]" />
         </div>
       </>
     );

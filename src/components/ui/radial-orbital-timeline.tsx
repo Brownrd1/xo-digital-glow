@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import xoLogo from "@/assets/xo-logo-center.svg";
 
 interface TimelineNode {
   id: number;
@@ -108,7 +109,11 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
       {/* Central hub */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-glow-indigo">
-          <div className="w-10 h-10 rounded-full bg-background/20 backdrop-blur-sm" />
+          <img 
+            src={xoLogo} 
+            alt="XO Logo" 
+            className="w-12 h-12"
+          />
         </div>
       </div>
 

@@ -66,11 +66,11 @@ const HeroAlt = () => {
         }}
       />
 
-      {/* Content wrapper - full width */}
-      <div className="relative z-10 w-full">
-        <div className="flex flex-col lg:flex-row items-center">
-          {/* Left - Text Content (constrained width) */}
-          <div className="order-2 lg:order-1 text-center lg:text-left px-6 lg:pl-12 xl:pl-24 2xl:pl-32 lg:pr-8 w-full lg:w-[40%] lg:max-w-[600px] lg:flex-shrink-0">
+      {/* Content wrapper - centered with max-width */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Left - Text Content */}
+          <div className="order-2 lg:order-1 text-center lg:text-left w-full lg:w-1/2 lg:flex-shrink-0">
             <h2 
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 opacity-0 animate-fade-in"
               style={{ animationDelay: '0.1s' }}
@@ -104,9 +104,9 @@ const HeroAlt = () => {
           </div>
 
           {/* Right - Radial Orbital Timeline */}
-          <div className="order-1 lg:order-2 w-full lg:w-[60%] lg:flex-grow flex justify-center lg:justify-end py-8 lg:py-0">
+          <div className="order-1 lg:order-2 w-full lg:w-1/2 flex justify-center py-6 lg:py-0">
             <div 
-              className="relative w-full max-w-[500px] lg:max-w-[600px] px-4 animate-fade-in"
+              className="relative w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] animate-fade-in"
               style={{ animationDelay: '0.2s' }}
             >
               {/* Glow background */}

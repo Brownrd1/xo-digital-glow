@@ -157,6 +157,45 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Glowing effect - the animated border glow */
+  .glowing-effect-glow::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--glowingeffect-border-width, 2px) * -1);
+    border-radius: inherit;
+    border: var(--glowingeffect-border-width, 2px) solid transparent;
+    background: 
+      padding-box padding-box transparent,
+      border-box border-box var(--gradient);
+    background-attachment: fixed;
+    opacity: var(--active, 0);
+    transition: opacity 0.3s ease;
+    
+    /* Mask for the sweeping spotlight effect */
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    mask: 
+      linear-gradient(transparent, transparent),
+      conic-gradient(
+        from calc((var(--start, 0) - var(--spread, 20)) * 1deg),
+        transparent 0deg,
+        #fff calc(var(--spread, 20) * 1deg),
+        transparent calc(var(--spread, 20) * 2deg)
+      );
+    
+    /* WebKit prefixed for Safari/Chrome */
+    -webkit-mask-clip: padding-box, border-box;
+    -webkit-mask-composite: source-in;
+    -webkit-mask: 
+      linear-gradient(transparent, transparent),
+      conic-gradient(
+        from calc((var(--start, 0) - var(--spread, 20)) * 1deg),
+        transparent 0deg,
+        #fff calc(var(--spread, 20) * 1deg),
+        transparent calc(var(--spread, 20) * 2deg)
+      );
+  }
 }
 
 @layer utilities {

@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import HeroAlt from "@/components/HeroAlt";
 import FeatureCards from "@/components/FeatureCards";
 import Process from "@/components/Process";
 import Results from "@/components/Results";
+import HeroImage from "@/components/HeroImage";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -36,11 +36,11 @@ const Index = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <main>
-          <Hero />
           <HeroAlt />
           <FeatureCards />
           <Process />
           <Results />
+          <HeroImage />
           <FAQ />
           <Contact />
         </main>

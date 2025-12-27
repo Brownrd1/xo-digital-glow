@@ -160,6 +160,11 @@
 }
 
 @layer utilities {
+  /* Glowing effect component styles */
+  .glow {
+    @apply absolute inset-0;
+  }
+
   /* Reduce motion support */
   @media (prefers-reduced-motion: reduce) {
     .hero-float,

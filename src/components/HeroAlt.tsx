@@ -17,8 +17,8 @@ const timelineNodes = [
     icon: <Code2 className="w-5 h-5" />,
     title: "Software Development",
     description: "Advanced tools for business",
-    status: "in-progress" as const,
-    energy: 75,
+    status: "completed" as const,
+    energy: 100,
     relatedIds: [1, 5],
   },
   {
@@ -26,8 +26,8 @@ const timelineNodes = [
     icon: <Megaphone className="w-5 h-5" />,
     title: "Marketing",
     description: "Build your brand",
-    status: "in-progress" as const,
-    energy: 60,
+    status: "completed" as const,
+    energy: 100,
     relatedIds: [4, 5],
   },
   {
@@ -35,8 +35,8 @@ const timelineNodes = [
     icon: <Search className="w-5 h-5" />,
     title: "SEO",
     description: "Get seen online",
-    status: "pending" as const,
-    energy: 40,
+    status: "completed" as const,
+    energy: 100,
     relatedIds: [1, 3],
   },
   {
@@ -44,8 +44,8 @@ const timelineNodes = [
     icon: <BarChart3 className="w-5 h-5" />,
     title: "Data Analysis",
     description: "Understand your market",
-    status: "pending" as const,
-    energy: 25,
+    status: "completed" as const,
+    energy: 100,
     relatedIds: [2, 3],
   },
 ];

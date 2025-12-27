@@ -106,7 +106,7 @@ const HeroAlt = () => {
           {/* Right - Radial Orbital Timeline */}
           <div className="order-2 lg:order-2 w-full lg:w-1/2 flex justify-center py-4 lg:py-0">
             <div 
-              className="relative w-full max-w-[280px] md:max-w-[450px] lg:max-w-[500px] animate-fade-in"
+              className="relative w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] animate-fade-in"
               style={{ animationDelay: '0.2s' }}
             >
               {/* Glow background */}

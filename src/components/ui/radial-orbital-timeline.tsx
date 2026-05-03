@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import xoLogo from "@/assets/xo-logo-center.svg";
+import xoLogo from "@/assets/logo-mark.svg";
 
 interface TimelineNode {
   id: number;
@@ -112,17 +112,18 @@ const RadialOrbitalTimeline = ({ nodes, className }: RadialOrbitalTimelineProps)
         <div className="w-44 h-44 rounded-full bg-primary/30 blur-2xl center-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* Central logo with radial gradient fade */}
+      {/* Central logo with darker backdrop so the logo blends naturally */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div 
+        <div
           className="w-52 h-52 flex items-center justify-center rounded-full"
           style={{
-            background: 'radial-gradient(circle, hsl(243 76% 59% / 0.6) 0%, hsl(243 76% 59% / 0.35) 45%, transparent 75%)'
+            background:
+              'radial-gradient(circle, hsl(216 35% 3%) 0%, hsl(216 30% 4% / 0.85) 55%, transparent 80%)',
           }}
         >
-          <img 
-            src={xoLogo} 
-            alt="XO Logo" 
+          <img
+            src={xoLogo}
+            alt="XO Logo"
             className="w-40 h-40"
           />
         </div>

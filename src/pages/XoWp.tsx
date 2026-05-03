@@ -143,15 +143,20 @@ const XoWp = () => {
             </div>
           </section>
 
-          {/* One-line pitch */}
+          {/* Strong support line */}
           <section className="py-20 border-y border-border/50 bg-card/30">
             <div className="container mx-auto px-6">
-              <p className="max-w-4xl mx-auto text-center text-2xl md:text-3xl font-light text-foreground/90 leading-relaxed">
-                One plugin install.{" "}
-                <span className="gradient-text font-semibold">
-                  WooCommerce becomes a B2B quoting and order management system.
-                </span>
-              </p>
+              <div className="max-w-4xl mx-auto text-center">
+                <p className="text-2xl md:text-3xl font-light text-foreground/90 leading-relaxed mb-3">
+                  Install XO-WP.{" "}
+                  <span className="gradient-text font-semibold">
+                    Turn WooCommerce into a B2B engine.
+                  </span>
+                </p>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  Quotes, invoices, approvals, and fulfilment — all in one structured flow.
+                </p>
+              </div>
             </div>
           </section>
 

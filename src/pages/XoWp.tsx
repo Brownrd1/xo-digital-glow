@@ -90,15 +90,21 @@ const XoWp = () => {
                 >
                   <span className="text-foreground">B2B checkout,</span>
                   <br />
-                  <span className="gradient-text">reimagined for WordPress.</span>
+                  <span className="gradient-text">rebuilt for WooCommerce.</span>
                 </h1>
 
                 <p
-                  className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
+                  className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 opacity-0 animate-fade-in"
                   style={{ animationDelay: "0.25s" }}
                 >
-                  XO-WP turns your WooCommerce store into a professional quote, invoice and order
-                  platform — branded, intelligent, and built for the way B2B actually buys.
+                  XO-WP transforms your store into a complete quoting, invoicing, and order
+                  management system — built for how real businesses buy.
+                </p>
+                <p
+                  className="text-base md:text-lg text-foreground/80 font-medium max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
+                  style={{ animationDelay: "0.3s" }}
+                >
+                  One plugin. Total control. From quote to payment.
                 </p>
 
                 <div

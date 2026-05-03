@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import xoLogo from "@/assets/xo-logo-center.svg";
+import xoLogo from "@/assets/logo-mark.svg";
 
 interface TimelineNode {
   id: number;

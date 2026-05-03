@@ -182,6 +182,59 @@ const XoWp = () => {
             </div>
           </section>
 
+          {/* Custom branded checkouts */}
+          <section className="py-24 md:py-32 relative overflow-hidden border-y border-border/50 bg-card/20">
+            <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[hsl(265_85%_62%)]/15 blur-[160px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/15 blur-[160px] rounded-full pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative">
+              <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                <div className="relative order-2 lg:order-1">
+                  <div className="absolute -inset-8 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
+                  <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_40px_100px_-20px_hsl(243_76%_59%/0.4)]">
+                    <img
+                      src={heroVisual}
+                      alt="Branded checkout templates in your business colours"
+                      loading="lazy"
+                      width={1920}
+                      height={1280}
+                      className="w-full h-auto block"
+                    />
+                  </div>
+                </div>
+
+                <div className="order-1 lg:order-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-xs font-medium text-primary mb-5">
+                    <LayoutTemplate className="w-3.5 h-3.5" />
+                    Custom branded checkouts
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                    Your brand, your colours.{" "}
+                    <span className="gradient-text">Our safe checkout system.</span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Every checkout is tailored to your business — your palette, your logo, your tone
+                    of voice. Customers feel like they never left your brand, while we run the secure
+                    payment infrastructure underneath.
+                  </p>
+                  <ul className="space-y-3 text-foreground/80">
+                    {[
+                      "Your brand colours, fonts and logo on every screen",
+                      "Choose from six checkout templates — multi-step or single page",
+                      "PCI-grade secure payment infrastructure, fully managed",
+                      "Trust signals and messaging that match your business voice",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Shipping engine spotlight */}
           <section className="relative py-24 md:py-32 overflow-hidden border-y border-border/50">
             <img

@@ -166,7 +166,8 @@ const XoWp = () => {
               <div className="max-w-2xl mx-auto text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4">Built for the way B2B buys</h2>
                 <p className="text-lg text-muted-foreground">
-                  Every detail engineered to remove friction from quoting, ordering and fulfilment.
+                  Built for real purchasing workflows — not retail checkouts. Every step is designed
+                  to remove friction between enquiry, pricing, approval, and payment.
                 </p>
               </div>
 

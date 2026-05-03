@@ -77,9 +77,12 @@ const FeatureCards = () => {
                 
                 {/* Inner card with solid background - sits on top of glow */}
                 <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl border border-border/50 bg-background p-6">
-                  {/* Icon container */}
-                  <div className="w-fit rounded-lg bg-primary p-2">
-                    <feature.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+                  {/* Icon container with gradient + halo */}
+                  <div className="relative w-fit">
+                    <div className="absolute inset-0 rounded-lg bg-primary/40 blur-xl" aria-hidden />
+                    <div className="relative rounded-lg bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] p-2 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
+                      <feature.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+                    </div>
                   </div>
                   
                   {/* Content */}

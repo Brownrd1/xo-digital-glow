@@ -400,13 +400,13 @@ const XoWp = () => {
                 <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[hsl(265_85%_62%)]/30 blur-3xl rounded-full pointer-events-none" />
                 <div className="relative">
                   <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                    Ready to see XO-WP in your store?
+                    Ready to run B2B properly{" "}
+                    <span className="gradient-text">on WooCommerce?</span>
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-                    Early access is opening to a small group of B2B WooCommerce stores. Tell us about
-                    yours.
+                    XO-WP early access is opening to a limited number of stores.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
                     <Button variant="hero" size="xl" asChild>
                       <Link to="/#contact">
                         Request early access
@@ -417,6 +417,9 @@ const XoWp = () => {
                       <Link to="/">Back to XO Digital</Link>
                     </Button>
                   </div>
+                  <p className="text-sm uppercase tracking-[0.25em] text-foreground/70 font-semibold">
+                    Control your checkout. <span className="gradient-text">Control your business.</span>
+                  </p>
                 </div>
               </div>
             </div>

@@ -4,10 +4,10 @@ import { Menu, X } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "XO-WP", href: "/xo-wp" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Header = () => {

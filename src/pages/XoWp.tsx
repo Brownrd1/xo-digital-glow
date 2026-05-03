@@ -366,9 +366,11 @@ const XoWp = () => {
           <section className="py-24 md:py-32 bg-card/20">
             <div className="container mx-auto px-6">
               <div className="max-w-2xl mx-auto text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">From cart to confirmed</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                  From enquiry to payment — <span className="gradient-text">fully structured</span>.
+                </h2>
                 <p className="text-lg text-muted-foreground">
-                  A structured, observable lifecycle — for every quote and every order.
+                  Six clear stages. Every quote, every order, every time.
                 </p>
               </div>
 

@@ -4,6 +4,9 @@ import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Wor
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import heroVisual from "@/assets/xowp-hero-visual.jpg";
+import orbitVisual from "@/assets/xowp-orbit.jpg";
+import networkVisual from "@/assets/xowp-network.jpg";
 
 const pillars = [
   {
@@ -69,10 +72,10 @@ const XoWp = () => {
 
         <main>
           {/* Hero */}
-          <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+          <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
             {/* Ambient glows */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[140px] rounded-full pointer-events-none" />
-            <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[hsl(265_85%_62%)]/15 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-primary/20 blur-[160px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[hsl(265_85%_62%)]/15 blur-[140px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-6 relative">
               <div className="max-w-3xl mx-auto text-center">
@@ -113,11 +116,29 @@ const XoWp = () => {
                   </Button>
                 </div>
               </div>
+
+              {/* Hero visual */}
+              <div
+                className="relative mt-20 max-w-6xl mx-auto opacity-0 animate-fade-in"
+                style={{ animationDelay: "0.55s" }}
+              >
+                <div className="absolute -inset-10 bg-gradient-to-tr from-primary/20 via-transparent to-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
+                <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_40px_100px_-20px_hsl(243_76%_59%/0.4)]">
+                  <img
+                    src={heroVisual}
+                    alt="XO-WP B2B checkout interface with quote and invoice cards"
+                    width={1920}
+                    height={1280}
+                    className="w-full h-auto block"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
             </div>
           </section>
 
           {/* One-line pitch */}
-          <section className="py-16 border-y border-border/50 bg-card/30">
+          <section className="py-20 border-y border-border/50 bg-card/30">
             <div className="container mx-auto px-6">
               <p className="max-w-4xl mx-auto text-center text-2xl md:text-3xl font-light text-foreground/90 leading-relaxed">
                 One plugin install.{" "}
@@ -161,8 +182,61 @@ const XoWp = () => {
             </div>
           </section>
 
+          {/* Shipping engine spotlight */}
+          <section className="relative py-24 md:py-32 overflow-hidden border-y border-border/50">
+            <img
+              src={networkVisual}
+              alt=""
+              loading="lazy"
+              width={1920}
+              height={1080}
+              className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background pointer-events-none" />
+            <div className="container mx-auto px-6 relative">
+              <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-xs font-medium text-primary mb-5">
+                    <Truck className="w-3.5 h-3.5" />
+                    Shipping intelligence
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                    Freight logic that <span className="gradient-text">never breaks checkout</span>.
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    Class-based rules. Multi-criteria routing. Graceful TBD handling for the edge
+                    cases competitors throw 500 errors at.
+                  </p>
+                  <ul className="space-y-3 text-foreground/80">
+                    {[
+                      "Per-product shipping classes with admin-defined rates",
+                      "Automatic invoice → quote downgrade when freight is uncertain",
+                      "Customer-facing TBD messaging that builds trust, not friction",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="relative">
+                  <div className="absolute -inset-8 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
+                  <img
+                    src={orbitVisual}
+                    alt="Orbital shipping intelligence visualisation"
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="relative w-full h-auto rounded-3xl border border-border/60"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Lifecycle */}
-          <section className="py-24 md:py-32 bg-card/20 border-y border-border/50">
+          <section className="py-24 md:py-32 bg-card/20">
             <div className="container mx-auto px-6">
               <div className="max-w-2xl mx-auto text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4">From cart to confirmed</h2>
@@ -175,7 +249,7 @@ const XoWp = () => {
                 {lifecycle.map((s) => (
                   <div
                     key={s.step}
-                    className="relative rounded-2xl border border-border/60 bg-background/60 backdrop-blur-sm p-6"
+                    className="relative rounded-2xl border border-border/60 bg-background/60 backdrop-blur-sm p-6 hover:border-primary/40 transition-colors"
                   >
                     <div className="text-xs font-semibold tracking-[0.2em] text-primary mb-3">
                       {s.step}
@@ -193,6 +267,8 @@ const XoWp = () => {
             <div className="container mx-auto px-6">
               <div className="relative max-w-4xl mx-auto rounded-3xl border border-primary/30 bg-card/40 backdrop-blur-md p-12 md:p-16 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-[hsl(265_85%_62%)]/10 pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/30 blur-3xl rounded-full pointer-events-none" />
+                <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[hsl(265_85%_62%)]/30 blur-3xl rounded-full pointer-events-none" />
                 <div className="relative">
                   <h2 className="text-3xl md:text-5xl font-bold mb-4">
                     Ready to see XO-WP in your store?

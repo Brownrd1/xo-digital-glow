@@ -265,17 +265,18 @@ const XoWp = () => {
                     Shipping intelligence
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                    Shipping logic <span className="gradient-text">designed for business needs</span>.
+                    Shipping that works{" "}
+                    <span className="gradient-text">the way your business works</span>.
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Filter locations. Build custom rules for regions and products. Shipping never
-                    fails — we protect every order, every time.
+                    No more broken checkouts. No more guesswork.
                   </p>
                   <ul className="space-y-3 text-foreground/80">
                     {[
-                      "Filter and restrict shipping by location or region",
-                      "Custom rules per product, category or shipping class",
-                      "Never fail on shipping — automatic protection on every order",
+                      "Restrict and filter by region or location",
+                      "Rules by product, category, or shipping class",
+                      "Intelligent fallback when data is incomplete",
+                      "Every order protected, every time",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />

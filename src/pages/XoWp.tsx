@@ -221,20 +221,19 @@ const XoWp = () => {
                     Custom branded checkouts
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                    Your brand, your colours.{" "}
-                    <span className="gradient-text">Our safe checkout system.</span>
+                    Your checkout. Your brand.{" "}
+                    <span className="gradient-text">Fully controlled.</span>
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Every checkout is tailored to your business — your palette, your logo, your tone
-                    of voice. Customers feel like they never left your brand, while we run the secure
-                    payment infrastructure underneath.
+                    Your customers never feel like they've left your business — because they haven't.
+                    Every pixel matches your brand, while we run the secure infrastructure underneath.
                   </p>
                   <ul className="space-y-3 text-foreground/80">
                     {[
-                      "Your brand colours, fonts and logo on every screen",
-                      "Choose from six checkout templates — multi-step or single page",
-                      "PCI-grade secure payment infrastructure, fully managed",
-                      "Trust signals and messaging that match your business voice",
+                      "Your colours, fonts, and logo on every screen",
+                      "Six flexible checkout layouts",
+                      "Secure, PCI-grade infrastructure handled for you",
+                      "Trust messaging aligned to your tone of voice",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />

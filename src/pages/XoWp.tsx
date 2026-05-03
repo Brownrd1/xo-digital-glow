@@ -11,43 +11,43 @@ import networkVisual from "@/assets/xowp-network.jpg";
 const pillars = [
   {
     icon: LayoutTemplate,
-    title: "Six branded checkout templates",
-    body: "From clean corporate to art deco. Multi-step or single page. Fully themable per store.",
+    title: "Six branded checkout experiences",
+    body: "Corporate, modern, or bold — multi-step or single page. Fully themed to your business.",
   },
   {
     icon: Workflow,
     title: "Quote → invoice lifecycle",
-    body: "Structured stages, in-place line item editing, one-click conversion, full audit trail.",
+    body: "Structured stages, editable line items, instant conversion, and a complete audit trail.",
   },
   {
     icon: Truck,
     title: "Shipping intelligence engine",
-    body: "Class-based rules, multi-criteria routing, graceful TBD handling. Never break a checkout.",
+    body: "Advanced rules, multi-condition logic, and safe fallbacks. Checkout never breaks.",
   },
   {
     icon: ShieldCheck,
     title: "Smart invoice protection",
-    body: "If freight cannot be confirmed, the order is automatically downgraded to a quote.",
+    body: "If shipping isn't confirmed, the system protects you — automatically converting to a quote.",
   },
   {
     icon: FileText,
-    title: "Documents that travel",
-    body: "Branded PDFs auto-regenerate on edit. Token-based downloads for every customer.",
+    title: "Documents that move with the order",
+    body: "Branded PDFs that update instantly. Secure, token-based access for every client.",
   },
   {
     icon: BrainCircuit,
-    title: "AI-powered business intelligence",
-    body: "Insights on quote velocity, conversion, and revenue patterns — built into the admin.",
+    title: "Built-in business intelligence",
+    body: "Track quote velocity, conversions, and revenue trends — directly inside your dashboard.",
   },
 ];
 
 const lifecycle = [
-  { step: "01", title: "Customer submits", body: "Branded checkout — multi-step or single page." },
-  { step: "02", title: "Quote or invoice", body: "Mode chosen per store, or per order at review." },
-  { step: "03", title: "Admin reviews", body: "Line edits, discounts, freight adjustments." },
-  { step: "04", title: "Client accepts", body: "Tracked status: sent → viewed → accepted." },
-  { step: "05", title: "Convert & invoice", body: "One click. Activity log preserved." },
-  { step: "06", title: "Payment & fulfil", body: "Gateway or EFT. Confirmed and closed." },
+  { step: "01", title: "Customer submits", body: "Branded checkout experience." },
+  { step: "02", title: "Quote or invoice", body: "Controlled per store or per order." },
+  { step: "03", title: "Admin reviews", body: "Adjust pricing, freight, and line items." },
+  { step: "04", title: "Client accepts", body: "Tracked: sent → viewed → approved." },
+  { step: "05", title: "Convert & invoice", body: "One click. Full history preserved." },
+  { step: "06", title: "Payment & fulfilment", body: "Gateway or EFT. Completed and closed." },
 ];
 
 const XoWp = () => {
@@ -90,15 +90,21 @@ const XoWp = () => {
                 >
                   <span className="text-foreground">B2B checkout,</span>
                   <br />
-                  <span className="gradient-text">reimagined for WordPress.</span>
+                  <span className="gradient-text">rebuilt for WooCommerce.</span>
                 </h1>
 
                 <p
-                  className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
+                  className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 opacity-0 animate-fade-in"
                   style={{ animationDelay: "0.25s" }}
                 >
-                  XO-WP turns your WooCommerce store into a professional quote, invoice and order
-                  platform — branded, intelligent, and built for the way B2B actually buys.
+                  XO-WP transforms your store into a complete quoting, invoicing, and order
+                  management system — built for how real businesses buy.
+                </p>
+                <p
+                  className="text-base md:text-lg text-foreground/80 font-medium max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
+                  style={{ animationDelay: "0.3s" }}
+                >
+                  One plugin. Total control. From quote to payment.
                 </p>
 
                 <div
@@ -137,15 +143,20 @@ const XoWp = () => {
             </div>
           </section>
 
-          {/* One-line pitch */}
+          {/* Strong support line */}
           <section className="py-20 border-y border-border/50 bg-card/30">
             <div className="container mx-auto px-6">
-              <p className="max-w-4xl mx-auto text-center text-2xl md:text-3xl font-light text-foreground/90 leading-relaxed">
-                One plugin install.{" "}
-                <span className="gradient-text font-semibold">
-                  WooCommerce becomes a B2B quoting and order management system.
-                </span>
-              </p>
+              <div className="max-w-4xl mx-auto text-center">
+                <p className="text-2xl md:text-3xl font-light text-foreground/90 leading-relaxed mb-3">
+                  Install XO-WP.{" "}
+                  <span className="gradient-text font-semibold">
+                    Turn WooCommerce into a B2B engine.
+                  </span>
+                </p>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  Quotes, invoices, approvals, and fulfilment — all in one structured flow.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -155,7 +166,8 @@ const XoWp = () => {
               <div className="max-w-2xl mx-auto text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4">Built for the way B2B buys</h2>
                 <p className="text-lg text-muted-foreground">
-                  Every detail engineered to remove friction from quoting, ordering and fulfilment.
+                  Built for real purchasing workflows — not retail checkouts. Every step is designed
+                  to remove friction between enquiry, pricing, approval, and payment.
                 </p>
               </div>
 
@@ -209,20 +221,19 @@ const XoWp = () => {
                     Custom branded checkouts
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                    Your brand, your colours.{" "}
-                    <span className="gradient-text">Our safe checkout system.</span>
+                    Your checkout. Your brand.{" "}
+                    <span className="gradient-text">Fully controlled.</span>
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Every checkout is tailored to your business — your palette, your logo, your tone
-                    of voice. Customers feel like they never left your brand, while we run the secure
-                    payment infrastructure underneath.
+                    Your customers never feel like they've left your business — because they haven't.
+                    Every pixel matches your brand, while we run the secure infrastructure underneath.
                   </p>
                   <ul className="space-y-3 text-foreground/80">
                     {[
-                      "Your brand colours, fonts and logo on every screen",
-                      "Choose from six checkout templates — multi-step or single page",
-                      "PCI-grade secure payment infrastructure, fully managed",
-                      "Trust signals and messaging that match your business voice",
+                      "Your colours, fonts, and logo on every screen",
+                      "Six flexible checkout layouts",
+                      "Secure, PCI-grade infrastructure handled for you",
+                      "Trust messaging aligned to your tone of voice",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />
@@ -254,17 +265,18 @@ const XoWp = () => {
                     Shipping intelligence
                   </div>
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                    Shipping logic <span className="gradient-text">designed for business needs</span>.
+                    Shipping that works{" "}
+                    <span className="gradient-text">the way your business works</span>.
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Filter locations. Build custom rules for regions and products. Shipping never
-                    fails — we protect every order, every time.
+                    No more broken checkouts. No more guesswork.
                   </p>
                   <ul className="space-y-3 text-foreground/80">
                     {[
-                      "Filter and restrict shipping by location or region",
-                      "Custom rules per product, category or shipping class",
-                      "Never fail on shipping — automatic protection on every order",
+                      "Restrict and filter by region or location",
+                      "Rules by product, category, or shipping class",
+                      "Intelligent fallback when data is incomplete",
+                      "Every order protected, every time",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shrink-0" />
@@ -300,12 +312,12 @@ const XoWp = () => {
                   Order management
                 </div>
                 <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight">
-                  We replaced WooCommerce orders.{" "}
-                  <span className="gradient-text">Ecommerce is now click and pay.</span>
+                  Not just orders.{" "}
+                  <span className="gradient-text">A complete workflow system.</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Orders flow into one system built for business. Click, and it handles the process —
-                  quotes, invoices, shipping, communication, fulfilment. Start to shipped, in one place.
+                  XO-WP replaces fragmented WooCommerce processes with one structured pipeline.
+                  Everything happens in one place.
                 </p>
               </div>
 
@@ -313,23 +325,23 @@ const XoWp = () => {
                 {[
                   {
                     icon: MousePointerClick,
-                    title: "One-click order processing",
-                    body: "Orders land in your dashboard ready to action. Click to convert, accept, invoice, dispatch — every step automated.",
+                    title: "Convert, approve, invoice, dispatch — in a click",
+                    body: "Orders land ready to action. Every transition is one click away, with the system handling the heavy lifting underneath.",
                   },
                   {
                     icon: PackageCheck,
-                    title: "Full quote & invoice cycles",
+                    title: "Full quote-to-order lifecycle tracking",
                     body: "From first enquiry to shipped and closed. Every stage tracked, every transition logged, every document generated.",
                   },
                   {
                     icon: Activity,
-                    title: "Live activity on every order",
-                    body: "See exactly what happened, when, and by whom. Status changes, edits, customer views — a complete observable timeline.",
+                    title: "Real-time activity timeline on every order",
+                    body: "See exactly what happened, when, and by whom. Status changes, edits, customer views — a complete observable history.",
                   },
                   {
                     icon: MessageSquare,
-                    title: "Custom client dashboard",
-                    body: "Talk to clients where the order lives. Branded portal, threaded messages, document downloads — no email chaos.",
+                    title: "Built-in client communication — no email chaos",
+                    body: "Talk to clients where the order lives. Branded portal, threaded messages, document downloads — all in context.",
                   },
                 ].map((c) => (
                   <div
@@ -354,9 +366,11 @@ const XoWp = () => {
           <section className="py-24 md:py-32 bg-card/20">
             <div className="container mx-auto px-6">
               <div className="max-w-2xl mx-auto text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">From cart to confirmed</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                  From enquiry to payment — <span className="gradient-text">fully structured</span>.
+                </h2>
                 <p className="text-lg text-muted-foreground">
-                  A structured, observable lifecycle — for every quote and every order.
+                  Six clear stages. Every quote, every order, every time.
                 </p>
               </div>
 
@@ -386,13 +400,13 @@ const XoWp = () => {
                 <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[hsl(265_85%_62%)]/30 blur-3xl rounded-full pointer-events-none" />
                 <div className="relative">
                   <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                    Ready to see XO-WP in your store?
+                    Ready to run B2B properly{" "}
+                    <span className="gradient-text">on WooCommerce?</span>
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8">
-                    Early access is opening to a small group of B2B WooCommerce stores. Tell us about
-                    yours.
+                    XO-WP early access is opening to a limited number of stores.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
                     <Button variant="hero" size="xl" asChild>
                       <Link to="/#contact">
                         Request early access
@@ -403,6 +417,9 @@ const XoWp = () => {
                       <Link to="/">Back to XO Digital</Link>
                     </Button>
                   </div>
+                  <p className="text-sm uppercase tracking-[0.25em] text-foreground/70 font-semibold">
+                    Control your checkout. <span className="gradient-text">Control your business.</span>
+                  </p>
                 </div>
               </div>
             </div>

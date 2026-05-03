@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Workflow, BrainCircuit } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Workflow, BrainCircuit, MousePointerClick, MessageSquare, Activity, PackageCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -231,6 +231,68 @@ const XoWp = () => {
                     className="relative w-full h-auto rounded-3xl border border-border/60"
                   />
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Order system replaces WooCommerce */}
+          <section className="py-24 md:py-32 relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 blur-[160px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[hsl(265_85%_62%)]/15 blur-[140px] rounded-full pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative">
+              <div className="max-w-3xl mx-auto text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-xs font-medium text-primary mb-5">
+                  <MousePointerClick className="w-3.5 h-3.5" />
+                  Order management
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight">
+                  We replaced WooCommerce orders.{" "}
+                  <span className="gradient-text">Ecommerce is now click and pay.</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Orders flow into one system built for business. Click, and it handles the process —
+                  quotes, invoices, shipping, communication, fulfilment. Start to shipped, in one place.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                {[
+                  {
+                    icon: MousePointerClick,
+                    title: "One-click order processing",
+                    body: "Orders land in your dashboard ready to action. Click to convert, accept, invoice, dispatch — every step automated.",
+                  },
+                  {
+                    icon: PackageCheck,
+                    title: "Full quote & invoice cycles",
+                    body: "From first enquiry to shipped and closed. Every stage tracked, every transition logged, every document generated.",
+                  },
+                  {
+                    icon: Activity,
+                    title: "Live activity on every order",
+                    body: "See exactly what happened, when, and by whom. Status changes, edits, customer views — a complete observable timeline.",
+                  },
+                  {
+                    icon: MessageSquare,
+                    title: "Custom client dashboard",
+                    body: "Talk to clients where the order lives. Branded portal, threaded messages, document downloads — no email chaos.",
+                  },
+                ].map((c) => (
+                  <div
+                    key={c.title}
+                    className="group relative rounded-2xl border border-border bg-card/50 backdrop-blur-sm p-8 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1"
+                  >
+                    <div className="relative w-fit mb-5">
+                      <div className="absolute inset-0 rounded-xl bg-primary/40 blur-xl" aria-hidden />
+                      <div className="relative rounded-xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] p-2.5 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
+                        <c.icon className="w-5 h-5 text-primary-foreground" strokeWidth={1.75} />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

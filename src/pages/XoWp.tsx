@@ -312,12 +312,12 @@ const XoWp = () => {
                   Order management
                 </div>
                 <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight">
-                  We replaced WooCommerce orders.{" "}
-                  <span className="gradient-text">Ecommerce is now click and pay.</span>
+                  Not just orders.{" "}
+                  <span className="gradient-text">A complete workflow system.</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Orders flow into one system built for business. Click, and it handles the process —
-                  quotes, invoices, shipping, communication, fulfilment. Start to shipped, in one place.
+                  XO-WP replaces fragmented WooCommerce processes with one structured pipeline.
+                  Everything happens in one place.
                 </p>
               </div>
 
@@ -325,23 +325,23 @@ const XoWp = () => {
                 {[
                   {
                     icon: MousePointerClick,
-                    title: "One-click order processing",
-                    body: "Orders land in your dashboard ready to action. Click to convert, accept, invoice, dispatch — every step automated.",
+                    title: "Convert, approve, invoice, dispatch — in a click",
+                    body: "Orders land ready to action. Every transition is one click away, with the system handling the heavy lifting underneath.",
                   },
                   {
                     icon: PackageCheck,
-                    title: "Full quote & invoice cycles",
+                    title: "Full quote-to-order lifecycle tracking",
                     body: "From first enquiry to shipped and closed. Every stage tracked, every transition logged, every document generated.",
                   },
                   {
                     icon: Activity,
-                    title: "Live activity on every order",
-                    body: "See exactly what happened, when, and by whom. Status changes, edits, customer views — a complete observable timeline.",
+                    title: "Real-time activity timeline on every order",
+                    body: "See exactly what happened, when, and by whom. Status changes, edits, customer views — a complete observable history.",
                   },
                   {
                     icon: MessageSquare,
-                    title: "Custom client dashboard",
-                    body: "Talk to clients where the order lives. Branded portal, threaded messages, document downloads — no email chaos.",
+                    title: "Built-in client communication — no email chaos",
+                    body: "Talk to clients where the order lives. Branded portal, threaded messages, document downloads — all in context.",
                   },
                 ].map((c) => (
                   <div

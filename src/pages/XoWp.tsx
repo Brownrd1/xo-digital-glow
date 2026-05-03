@@ -11,43 +11,43 @@ import networkVisual from "@/assets/xowp-network.jpg";
 const pillars = [
   {
     icon: LayoutTemplate,
-    title: "Six branded checkout templates",
-    body: "From clean corporate to art deco. Multi-step or single page. Fully themable per store.",
+    title: "Six branded checkout experiences",
+    body: "Corporate, modern, or bold — multi-step or single page. Fully themed to your business.",
   },
   {
     icon: Workflow,
     title: "Quote → invoice lifecycle",
-    body: "Structured stages, in-place line item editing, one-click conversion, full audit trail.",
+    body: "Structured stages, editable line items, instant conversion, and a complete audit trail.",
   },
   {
     icon: Truck,
     title: "Shipping intelligence engine",
-    body: "Class-based rules, multi-criteria routing, graceful TBD handling. Never break a checkout.",
+    body: "Advanced rules, multi-condition logic, and safe fallbacks. Checkout never breaks.",
   },
   {
     icon: ShieldCheck,
     title: "Smart invoice protection",
-    body: "If freight cannot be confirmed, the order is automatically downgraded to a quote.",
+    body: "If shipping isn't confirmed, the system protects you — automatically converting to a quote.",
   },
   {
     icon: FileText,
-    title: "Documents that travel",
-    body: "Branded PDFs auto-regenerate on edit. Token-based downloads for every customer.",
+    title: "Documents that move with the order",
+    body: "Branded PDFs that update instantly. Secure, token-based access for every client.",
   },
   {
     icon: BrainCircuit,
-    title: "AI-powered business intelligence",
-    body: "Insights on quote velocity, conversion, and revenue patterns — built into the admin.",
+    title: "Built-in business intelligence",
+    body: "Track quote velocity, conversions, and revenue trends — directly inside your dashboard.",
   },
 ];
 
 const lifecycle = [
-  { step: "01", title: "Customer submits", body: "Branded checkout — multi-step or single page." },
-  { step: "02", title: "Quote or invoice", body: "Mode chosen per store, or per order at review." },
-  { step: "03", title: "Admin reviews", body: "Line edits, discounts, freight adjustments." },
-  { step: "04", title: "Client accepts", body: "Tracked status: sent → viewed → accepted." },
-  { step: "05", title: "Convert & invoice", body: "One click. Activity log preserved." },
-  { step: "06", title: "Payment & fulfil", body: "Gateway or EFT. Confirmed and closed." },
+  { step: "01", title: "Customer submits", body: "Branded checkout experience." },
+  { step: "02", title: "Quote or invoice", body: "Controlled per store or per order." },
+  { step: "03", title: "Admin reviews", body: "Adjust pricing, freight, and line items." },
+  { step: "04", title: "Client accepts", body: "Tracked: sent → viewed → approved." },
+  { step: "05", title: "Convert & invoice", body: "One click. Full history preserved." },
+  { step: "06", title: "Payment & fulfilment", body: "Gateway or EFT. Completed and closed." },
 ];
 
 const XoWp = () => {

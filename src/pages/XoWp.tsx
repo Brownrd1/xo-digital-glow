@@ -8,6 +8,7 @@ import heroVisual from "@/assets/xowp-hero-visual.jpg";
 import orbitVisual from "@/assets/xowp-orbit.jpg";
 import networkVisual from "@/assets/xowp-network.jpg";
 import checkoutFlow from "@/assets/xowp-checkout-flow.png";
+import checkoutHero from "@/assets/xowp-checkout-hero.png";
 
 const pillars = [
   {

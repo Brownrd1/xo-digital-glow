@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import heroVisual from "@/assets/xowp-hero-visual.jpg";
 import orbitVisual from "@/assets/xowp-orbit.jpg";
 import networkVisual from "@/assets/xowp-network.jpg";
+import checkoutFlow from "@/assets/xowp-checkout-flow.png";
 
 const pillars = [
   {
@@ -205,11 +206,11 @@ const XoWp = () => {
                   <div className="absolute -inset-8 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
                   <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_40px_100px_-20px_hsl(243_76%_59%/0.4)]">
                     <img
-                      src={heroVisual}
-                      alt="Branded checkout templates in your business colours"
+                      src={checkoutFlow}
+                      alt="Futuristic XO-WP branded checkout flow — review, payment, processing, confirmation"
                       loading="lazy"
-                      width={1920}
-                      height={1280}
+                      width={1536}
+                      height={1024}
                       className="w-full h-auto block"
                     />
                   </div>

@@ -8,6 +8,7 @@ import heroVisual from "@/assets/xowp-hero-visual.jpg";
 import orbitVisual from "@/assets/xowp-orbit.jpg";
 import networkVisual from "@/assets/xowp-network.jpg";
 import checkoutFlow from "@/assets/xowp-checkout-flow.png";
+import checkoutHero from "@/assets/xowp-checkout-hero.png";
 
 const pillars = [
   {
@@ -132,10 +133,10 @@ const XoWp = () => {
                 <div className="absolute -inset-10 bg-gradient-to-tr from-primary/20 via-transparent to-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
                 <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-[0_40px_100px_-20px_hsl(243_76%_59%/0.4)]">
                   <img
-                    src={heroVisual}
-                    alt="XO-WP B2B checkout interface with quote and invoice cards"
-                    width={1920}
-                    height={1280}
+                    src={checkoutHero}
+                    alt="XO-WP futuristic checkout experience — six-step visual flow"
+                    width={1536}
+                    height={1024}
                     className="w-full h-auto block"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />

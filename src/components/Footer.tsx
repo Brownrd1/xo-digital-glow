@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Mail } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 
 const footerLinks = {
@@ -118,20 +118,12 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@xodigital.systems"
+                  href="mailto:admin@xo.systems.com"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  hello@xodigital.systems
+                  admin@xo.systems.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <Phone className="w-4 h-4" />
-                +44 20 1234 5678
-              </li>
-              <li className="flex items-start gap-2 text-muted-foreground">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>London, United Kingdom</span>
               </li>
             </ul>
           </div>

@@ -596,20 +596,8 @@ const XoWp = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {lifecycle.map((s) => (
-                  <div
-                    key={s.step}
-                    className="relative rounded-2xl border border-border/60 bg-background/60 backdrop-blur-sm p-6 hover:border-primary/40 transition-colors"
-                  >
-                    <div className="text-xs font-semibold tracking-[0.2em] text-primary mb-3">
-                      {s.step}
-                    </div>
-                    <h3 className="text-lg font-semibold mb-1.5">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
-                  </div>
-                ))}
-              </div>
+              <LifecycleShowcase />
+
             </div>
           </section>
 

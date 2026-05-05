@@ -127,6 +127,16 @@ const lifecycle = [
 
 const SLIDE_DURATION = 6000;
 
+// Gradient progression inspired by reference: magenta → purple → indigo → blue → cyan
+const stageHues: { from: string; to: string; solo: string }[] = [
+  { from: "300 90% 65%", to: "280 85% 62%", solo: "295 85% 62%" },
+  { from: "278 85% 62%", to: "258 80% 62%", solo: "270 80% 62%" },
+  { from: "255 80% 62%", to: "238 78% 62%", solo: "248 78% 62%" },
+  { from: "230 80% 62%", to: "210 85% 60%", solo: "220 82% 60%" },
+  { from: "205 85% 60%", to: "188 88% 55%", solo: "198 85% 58%" },
+  { from: "185 90% 55%", to: "170 85% 52%", solo: "178 88% 54%" },
+];
+
 const LifecycleShowcase = () => {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -163,6 +173,13 @@ const LifecycleShowcase = () => {
 
   const current = lifecycle[active];
   const Icon = current.icon;
+  const hue = stageHues[active];
+
+  const railFullGradient =
+    "linear-gradient(to right, " +
+    stageHues.map((h, i) => `hsl(${h.solo}) ${(i / (total - 1)) * 100}%`).join(", ") +
+    ")";
+  const filledPct = ((active + progress) / (total - 1)) * 100;
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -170,14 +187,38 @@ const LifecycleShowcase = () => {
       <div className="relative mb-10">
         <div className="absolute left-0 right-0 top-5 md:top-6 h-px bg-border/60" aria-hidden />
         <div
-          className="absolute left-0 top-5 md:top-6 h-px bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-all duration-300"
-          style={{ width: `${((active + progress) / (total - 1)) * 100}%` }}
+          className="absolute left-0 top-5 md:top-6 h-px transition-all duration-300 overflow-hidden"
+          style={{ width: `${filledPct}%` }}
           aria-hidden
-        />
+        >
+          <div
+            className="h-full"
+            style={{
+              width: `${(100 / Math.max(filledPct, 0.0001)) * 100}%`,
+              backgroundImage: railFullGradient,
+            }}
+          />
+        </div>
         <ol className="relative grid grid-cols-6 gap-2">
           {lifecycle.map((s, i) => {
             const isActive = i === active;
             const isDone = i < active;
+            const h = stageHues[i];
+            const baseStyle = isActive
+              ? {
+                  background: `linear-gradient(135deg, hsl(${h.from}), hsl(${h.to}))`,
+                  borderColor: `hsl(${h.solo})`,
+                  color: "hsl(var(--primary-foreground))",
+                  boxShadow: `0 0 24px hsl(${h.solo} / 0.6)`,
+                  transform: "scale(1.1)",
+                }
+              : isDone
+              ? {
+                  background: `hsl(${h.solo} / 0.15)`,
+                  borderColor: `hsl(${h.solo} / 0.5)`,
+                  color: `hsl(${h.solo})`,
+                }
+              : {};
             return (
               <li key={s.step} className="flex justify-center">
                 <button
@@ -189,16 +230,19 @@ const LifecycleShowcase = () => {
                 >
                   <span
                     className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
-                      isActive
-                        ? "bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] border-primary text-primary-foreground shadow-[0_0_24px_hsl(243_76%_59%/0.6)] scale-110"
-                        : isDone
-                        ? "bg-primary/15 border-primary/40 text-primary"
-                        : "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
+                      !isActive && !isDone
+                        ? "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
+                        : ""
                     }`}
+                    style={baseStyle}
                   >
                     {s.step}
                     {isActive && (
-                      <span className="absolute inset-0 rounded-full bg-primary/30 blur-xl -z-10" aria-hidden />
+                      <span
+                        className="absolute inset-0 rounded-full blur-xl -z-10"
+                        style={{ background: `hsl(${h.solo} / 0.4)` }}
+                        aria-hidden
+                      />
                     )}
                   </span>
                   <span
@@ -217,29 +261,60 @@ const LifecycleShowcase = () => {
 
       {/* Active slide */}
       <div className="relative rounded-3xl border border-border/60 bg-card/40 backdrop-blur-md p-8 md:p-12 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
+        <div
+          className="absolute -top-32 -right-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
+          style={{ background: `hsl(${hue.from} / 0.25)` }}
+        />
+        <div
+          className="absolute -bottom-32 -left-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
+          style={{ background: `hsl(${hue.to} / 0.25)` }}
+        />
 
         <div key={active} className="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12 items-start animate-fade-in">
           <div className="relative">
-            <div className="absolute inset-0 rounded-3xl bg-primary/30 blur-2xl" aria-hidden />
-            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
+            <div
+              className="absolute inset-0 rounded-3xl blur-2xl"
+              style={{ background: `hsl(${hue.solo} / 0.4)` }}
+              aria-hidden
+            />
+            <div
+              className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]"
+              style={{ background: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))` }}
+            >
               <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" strokeWidth={1.6} />
             </div>
           </div>
 
           <div>
-            <div className="text-xs font-semibold tracking-[0.25em] text-primary mb-3">
+            <div
+              className="text-xs font-semibold tracking-[0.25em] mb-3"
+              style={{ color: `hsl(${hue.solo})` }}
+            >
               STAGE {current.step} OF {String(total).padStart(2, "0")}
             </div>
-            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{current.title}</h3>
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
+              <span
+                style={{
+                  backgroundImage: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))`,
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                {current.title}
+              </span>
+            </h3>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
               {current.detail}
             </p>
             <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
               {current.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" strokeWidth={2} />
+                  <CheckCircle2
+                    className="w-4 h-4 mt-0.5 shrink-0"
+                    strokeWidth={2}
+                    style={{ color: `hsl(${hue.solo})` }}
+                  />
                   <span>{h}</span>
                 </li>
               ))}
@@ -249,8 +324,11 @@ const LifecycleShowcase = () => {
 
         <div className="relative mt-8 h-1 rounded-full bg-border/50 overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-[width] duration-100 ease-linear"
-            style={{ width: `${progress * 100}%` }}
+            className="absolute inset-y-0 left-0 transition-[width] duration-100 ease-linear"
+            style={{
+              width: `${progress * 100}%`,
+              background: `linear-gradient(to right, hsl(${hue.from}), hsl(${hue.to}))`,
+            }}
           />
         </div>
 
@@ -287,6 +365,7 @@ const LifecycleShowcase = () => {
     </div>
   );
 };
+
 
 const XoWp = () => {
   return (

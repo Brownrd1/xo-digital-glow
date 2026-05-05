@@ -127,14 +127,14 @@ const lifecycle = [
 
 const SLIDE_DURATION = 6000;
 
-// Gradient progression inspired by reference: magenta → purple → indigo → blue → cyan
-const stageHues: { from: string; to: string; solo: string }[] = [
-  { from: "290 65% 68%", to: "275 60% 66%", solo: "283 60% 70%" },
-  { from: "272 58% 68%", to: "258 55% 66%", solo: "265 55% 70%" },
-  { from: "255 55% 68%", to: "240 55% 66%", solo: "248 55% 70%" },
-  { from: "235 60% 68%", to: "218 62% 66%", solo: "225 60% 70%" },
-  { from: "218 62% 68%", to: "205 60% 66%", solo: "212 60% 70%" },
-  { from: "208 60% 68%", to: "198 55% 66%", solo: "203 55% 70%" },
+// Vibrant rainbow gradient — used ONLY on the moving stepper rail line
+const railHues = [
+  "300 90% 65%",
+  "278 85% 62%",
+  "255 80% 62%",
+  "230 80% 62%",
+  "205 85% 60%",
+  "188 88% 55%",
 ];
 
 const LifecycleShowcase = () => {

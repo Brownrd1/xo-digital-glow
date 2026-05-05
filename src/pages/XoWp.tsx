@@ -183,27 +183,34 @@ const LifecycleShowcase = () => {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Stepper rail */}
-      <div className="relative mb-10">
-        <div className="absolute left-0 right-0 top-5 md:top-6 h-px bg-border/60" aria-hidden />
+      <div className="relative mb-10 px-5 md:px-6">
+        {/* Track + gradient line, inset to dot centers */}
+        <div className="absolute left-5 right-5 md:left-6 md:right-6 top-5 md:top-6 h-px bg-border/60" aria-hidden />
         <div
-          className="absolute left-0 top-5 md:top-6 h-px transition-all duration-300 overflow-hidden"
-          style={{ width: `${filledPct}%` }}
+          className="absolute left-5 md:left-6 top-5 md:top-6 h-px overflow-hidden"
+          style={{
+            width: `calc((100% - ${/* px-5 = 20px each side md:24 */ ''}2.5rem) * ${filledPct / 100})`,
+          }}
           aria-hidden
         >
           <div
             className="h-full"
             style={{
-              width: `${(100 / Math.max(filledPct, 0.0001)) * 100}%`,
+              width: `calc(100vw)`,
+              maxWidth: `${72 / Math.max(filledPct, 0.0001) * 100}rem`,
               backgroundImage: railFullGradient,
+              backgroundSize: `${(100 / Math.max(filledPct, 0.0001)) * 100}% 100%`,
+              backgroundRepeat: "no-repeat",
             }}
           />
         </div>
-        <ol className="relative grid grid-cols-6 gap-2">
+
+        <ol className="relative flex items-start justify-between">
           {lifecycle.map((s, i) => {
             const isActive = i === active;
             const isDone = i < active;
             return (
-              <li key={s.step} className="flex justify-center">
+              <li key={s.step} className="flex flex-col items-center gap-2 flex-1 min-w-0">
                 <button
                   type="button"
                   onClick={() => goTo(i)}

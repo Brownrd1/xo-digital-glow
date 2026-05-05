@@ -241,60 +241,29 @@ const LifecycleShowcase = () => {
 
       {/* Active slide */}
       <div className="relative rounded-3xl border border-border/60 bg-card/40 backdrop-blur-md p-8 md:p-12 overflow-hidden">
-        <div
-          className="absolute -top-32 -right-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
-          style={{ background: `hsl(${hue.from} / 0.25)` }}
-        />
-        <div
-          className="absolute -bottom-32 -left-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
-          style={{ background: `hsl(${hue.to} / 0.25)` }}
-        />
+        <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
 
         <div key={active} className="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12 items-start animate-fade-in">
           <div className="relative">
-            <div
-              className="absolute inset-0 rounded-3xl blur-2xl"
-              style={{ background: `hsl(${hue.solo} / 0.4)` }}
-              aria-hidden
-            />
-            <div
-              className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]"
-              style={{ background: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))` }}
-            >
+            <div className="absolute inset-0 rounded-3xl bg-primary/30 blur-2xl" aria-hidden />
+            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
               <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" strokeWidth={1.6} />
             </div>
           </div>
 
           <div>
-            <div
-              className="text-xs font-semibold tracking-[0.25em] mb-3"
-              style={{ color: `hsl(${hue.solo})` }}
-            >
+            <div className="text-xs font-semibold tracking-[0.25em] text-primary mb-3">
               STAGE {current.step} OF {String(total).padStart(2, "0")}
             </div>
-            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
-              <span
-                style={{
-                  backgroundImage: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))`,
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {current.title}
-              </span>
-            </h3>
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{current.title}</h3>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
               {current.detail}
             </p>
             <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
               {current.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                  <CheckCircle2
-                    className="w-4 h-4 mt-0.5 shrink-0"
-                    strokeWidth={2}
-                    style={{ color: `hsl(${hue.solo})` }}
-                  />
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" strokeWidth={2} />
                   <span>{h}</span>
                 </li>
               ))}
@@ -304,11 +273,8 @@ const LifecycleShowcase = () => {
 
         <div className="relative mt-8 h-1 rounded-full bg-border/50 overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 transition-[width] duration-100 ease-linear"
-            style={{
-              width: `${progress * 100}%`,
-              background: `linear-gradient(to right, hsl(${hue.from}), hsl(${hue.to}))`,
-            }}
+            className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-[width] duration-100 ease-linear"
+            style={{ width: `${progress * 100}%` }}
           />
         </div>
 

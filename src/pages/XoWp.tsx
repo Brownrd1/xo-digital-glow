@@ -125,6 +125,169 @@ const lifecycle = [
   },
 ];
 
+const SLIDE_DURATION = 6000;
+
+const LifecycleShowcase = () => {
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const startRef = useRef<number>(performance.now());
+  const rafRef = useRef<number>();
+
+  const total = lifecycle.length;
+
+  useEffect(() => {
+    if (!playing) return;
+    startRef.current = performance.now();
+    const tick = (now: number) => {
+      const elapsed = now - startRef.current;
+      const pct = Math.min(elapsed / SLIDE_DURATION, 1);
+      setProgress(pct);
+      if (pct >= 1) {
+        setActive((a) => (a + 1) % total);
+      } else {
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [playing, active, total]);
+
+  const goTo = (i: number) => {
+    setActive(((i % total) + total) % total);
+    setProgress(0);
+    startRef.current = performance.now();
+  };
+
+  const current = lifecycle[active];
+  const Icon = current.icon;
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      {/* Stepper rail */}
+      <div className="relative mb-10">
+        <div className="absolute left-0 right-0 top-5 md:top-6 h-px bg-border/60" aria-hidden />
+        <div
+          className="absolute left-0 top-5 md:top-6 h-px bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-all duration-300"
+          style={{ width: `${((active + progress) / (total - 1)) * 100}%` }}
+          aria-hidden
+        />
+        <ol className="relative grid grid-cols-6 gap-2">
+          {lifecycle.map((s, i) => {
+            const isActive = i === active;
+            const isDone = i < active;
+            return (
+              <li key={s.step} className="flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to step ${s.step}: ${s.title}`}
+                  aria-current={isActive ? "step" : undefined}
+                  className="group relative flex flex-col items-center gap-2"
+                >
+                  <span
+                    className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
+                      isActive
+                        ? "bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] border-primary text-primary-foreground shadow-[0_0_24px_hsl(243_76%_59%/0.6)] scale-110"
+                        : isDone
+                        ? "bg-primary/15 border-primary/40 text-primary"
+                        : "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
+                    }`}
+                  >
+                    {s.step}
+                    {isActive && (
+                      <span className="absolute inset-0 rounded-full bg-primary/30 blur-xl -z-10" aria-hidden />
+                    )}
+                  </span>
+                  <span
+                    className={`hidden md:block text-xs font-medium text-center transition-colors ${
+                      isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
+                    }`}
+                  >
+                    {s.title}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+
+      {/* Active slide */}
+      <div className="relative rounded-3xl border border-border/60 bg-card/40 backdrop-blur-md p-8 md:p-12 overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
+
+        <div key={active} className="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12 items-start animate-fade-in">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-3xl bg-primary/30 blur-2xl" aria-hidden />
+            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
+              <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" strokeWidth={1.6} />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold tracking-[0.25em] text-primary mb-3">
+              STAGE {current.step} OF {String(total).padStart(2, "0")}
+            </div>
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{current.title}</h3>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+              {current.detail}
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+              {current.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" strokeWidth={2} />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="relative mt-8 h-1 rounded-full bg-border/50 overflow-hidden">
+          <div
+            className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-[width] duration-100 ease-linear"
+            style={{ width: `${progress * 100}%` }}
+          />
+        </div>
+
+        <div className="relative flex items-center justify-between mt-6">
+          <button
+            type="button"
+            onClick={() => goTo(active - 1)}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Previous stage"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Previous
+          </button>
+          <button
+            type="button"
+            onClick={() => setPlaying((p) => !p)}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-background/60 text-xs font-medium text-foreground/80 hover:border-primary/40 hover:text-foreground transition-colors"
+            aria-label={playing ? "Pause auto-play" : "Resume auto-play"}
+          >
+            {playing ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+            {playing ? "Pause" : "Play"}
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(active + 1)}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Next stage"
+          >
+            Next
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const XoWp = () => {
   return (
     <>

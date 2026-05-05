@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Mail } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 
 const footerLinks = {

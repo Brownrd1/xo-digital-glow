@@ -129,12 +129,12 @@ const SLIDE_DURATION = 6000;
 
 // Gradient progression inspired by reference: magenta → purple → indigo → blue → cyan
 const stageHues: { from: string; to: string; solo: string }[] = [
-  { from: "300 90% 65%", to: "280 85% 62%", solo: "295 85% 62%" },
-  { from: "278 85% 62%", to: "258 80% 62%", solo: "270 80% 62%" },
-  { from: "255 80% 62%", to: "238 78% 62%", solo: "248 78% 62%" },
-  { from: "230 80% 62%", to: "210 85% 60%", solo: "220 82% 60%" },
-  { from: "205 85% 60%", to: "188 88% 55%", solo: "198 85% 58%" },
-  { from: "185 90% 55%", to: "170 85% 52%", solo: "178 88% 54%" },
+  { from: "290 65% 68%", to: "275 60% 66%", solo: "283 60% 70%" },
+  { from: "272 58% 68%", to: "258 55% 66%", solo: "265 55% 70%" },
+  { from: "255 55% 68%", to: "240 55% 66%", solo: "248 55% 70%" },
+  { from: "235 60% 68%", to: "218 62% 66%", solo: "225 60% 70%" },
+  { from: "218 62% 68%", to: "205 60% 66%", solo: "212 60% 70%" },
+  { from: "208 60% 68%", to: "198 55% 66%", solo: "203 55% 70%" },
 ];
 
 const LifecycleShowcase = () => {

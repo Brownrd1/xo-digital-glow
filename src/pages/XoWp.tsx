@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Workflow, BrainCircuit, MousePointerClick, MessageSquare, Activity, PackageCheck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Workflow, BrainCircuit, MousePointerClick, MessageSquare, Activity, PackageCheck, ShoppingCart, FileCheck2, UserCog, CheckCircle2, Repeat, CreditCard, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";

@@ -45,12 +45,84 @@ const pillars = [
 ];
 
 const lifecycle = [
-  { step: "01", title: "Customer submits", body: "Branded checkout experience." },
-  { step: "02", title: "Quote or invoice", body: "Controlled per store or per order." },
-  { step: "03", title: "Admin reviews", body: "Adjust pricing, freight, and line items." },
-  { step: "04", title: "Client accepts", body: "Tracked: sent → viewed → approved." },
-  { step: "05", title: "Convert & invoice", body: "One click. Full history preserved." },
-  { step: "06", title: "Payment & fulfilment", body: "Gateway or EFT. Completed and closed." },
+  {
+    step: "01",
+    title: "Customer submits",
+    body: "Branded checkout experience.",
+    icon: ShoppingCart,
+    detail:
+      "The buyer completes a fully branded, multi-step checkout that feels like part of your store. Their details, line items, and shipping context are captured in one structured submission.",
+    highlights: [
+      "Branded, on-domain checkout",
+      "Validated customer & shipping data",
+      "Captured straight into the pipeline",
+    ],
+  },
+  {
+    step: "02",
+    title: "Quote or invoice",
+    body: "Controlled per store or per order.",
+    icon: FileCheck2,
+    detail:
+      "Decide globally or per order whether the submission becomes a quote awaiting approval or a direct invoice. The system routes the order down the right path automatically.",
+    highlights: [
+      "Per-store default behaviour",
+      "Per-order overrides",
+      "Smart fallback to quote when needed",
+    ],
+  },
+  {
+    step: "03",
+    title: "Admin reviews",
+    body: "Adjust pricing, freight, and line items.",
+    icon: UserCog,
+    detail:
+      "Your team opens the order, refines pricing, adjusts freight, edits line items, and adds notes — all in one screen with a complete activity log of every change.",
+    highlights: [
+      "Edit pricing & freight inline",
+      "Add, remove, or split line items",
+      "Full audit trail of every edit",
+    ],
+  },
+  {
+    step: "04",
+    title: "Client accepts",
+    body: "Tracked: sent → viewed → approved.",
+    icon: CheckCircle2,
+    detail:
+      "The client receives a secure, token-protected link to a branded quote. You see exactly when it was sent, opened, and approved — no chasing, no guessing.",
+    highlights: [
+      "Secure token-based client portal",
+      "Sent → viewed → approved tracking",
+      "One-click approve or request changes",
+    ],
+  },
+  {
+    step: "05",
+    title: "Convert & invoice",
+    body: "One click. Full history preserved.",
+    icon: Repeat,
+    detail:
+      "Approved quotes convert to invoices in a single click. The original quote, edits, and timeline are preserved as a permanent, linked history on the order.",
+    highlights: [
+      "One-click quote → invoice",
+      "Linked, immutable history",
+      "Branded invoice PDF generated instantly",
+    ],
+  },
+  {
+    step: "06",
+    title: "Payment & fulfilment",
+    body: "Gateway or EFT. Completed and closed.",
+    icon: CreditCard,
+    detail:
+      "Collect payment via gateway or EFT, mark fulfilment, and close the loop. Status, documents, and communication stay attached to the order forever.",
+    highlights: [
+      "Gateway or manual EFT flows",
+      "Fulfilment tracking & dispatch",
+      "Order closed with full record retained",
+    ],
+  },
 ];
 
 const XoWp = () => {

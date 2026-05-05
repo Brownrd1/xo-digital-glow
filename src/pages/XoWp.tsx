@@ -127,14 +127,14 @@ const lifecycle = [
 
 const SLIDE_DURATION = 6000;
 
-// Gradient progression inspired by reference: magenta → purple → indigo → blue → cyan
-const stageHues: { from: string; to: string; solo: string }[] = [
-  { from: "290 65% 68%", to: "275 60% 66%", solo: "283 60% 70%" },
-  { from: "272 58% 68%", to: "258 55% 66%", solo: "265 55% 70%" },
-  { from: "255 55% 68%", to: "240 55% 66%", solo: "248 55% 70%" },
-  { from: "235 60% 68%", to: "218 62% 66%", solo: "225 60% 70%" },
-  { from: "218 62% 68%", to: "205 60% 66%", solo: "212 60% 70%" },
-  { from: "208 60% 68%", to: "198 55% 66%", solo: "203 55% 70%" },
+// Vibrant rainbow gradient — used ONLY on the moving stepper rail line
+const railHues = [
+  "300 90% 65%",
+  "278 85% 62%",
+  "255 80% 62%",
+  "230 80% 62%",
+  "205 85% 60%",
+  "188 88% 55%",
 ];
 
 const LifecycleShowcase = () => {
@@ -173,11 +173,10 @@ const LifecycleShowcase = () => {
 
   const current = lifecycle[active];
   const Icon = current.icon;
-  const hue = stageHues[active];
 
   const railFullGradient =
     "linear-gradient(to right, " +
-    stageHues.map((h, i) => `hsl(${h.solo}) ${(i / (total - 1)) * 100}%`).join(", ") +
+    railHues.map((h, i) => `hsl(${h}) ${(i / (total - 1)) * 100}%`).join(", ") +
     ")";
   const filledPct = ((active + progress) / (total - 1)) * 100;
 
@@ -203,22 +202,6 @@ const LifecycleShowcase = () => {
           {lifecycle.map((s, i) => {
             const isActive = i === active;
             const isDone = i < active;
-            const h = stageHues[i];
-            const baseStyle = isActive
-              ? {
-                  background: `linear-gradient(135deg, hsl(${h.from}), hsl(${h.to}))`,
-                  borderColor: `hsl(${h.solo})`,
-                  color: "hsl(var(--primary-foreground))",
-                  boxShadow: `0 0 24px hsl(${h.solo} / 0.6)`,
-                  transform: "scale(1.1)",
-                }
-              : isDone
-              ? {
-                  background: `hsl(${h.solo} / 0.15)`,
-                  borderColor: `hsl(${h.solo} / 0.5)`,
-                  color: `hsl(${h.solo})`,
-                }
-              : {};
             return (
               <li key={s.step} className="flex justify-center">
                 <button
@@ -230,19 +213,16 @@ const LifecycleShowcase = () => {
                 >
                   <span
                     className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
-                      !isActive && !isDone
-                        ? "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
-                        : ""
+                      isActive
+                        ? "bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] border-primary text-primary-foreground shadow-[0_0_24px_hsl(243_76%_59%/0.6)] scale-110"
+                        : isDone
+                        ? "bg-primary/15 border-primary/40 text-primary"
+                        : "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
                     }`}
-                    style={baseStyle}
                   >
                     {s.step}
                     {isActive && (
-                      <span
-                        className="absolute inset-0 rounded-full blur-xl -z-10"
-                        style={{ background: `hsl(${h.solo} / 0.4)` }}
-                        aria-hidden
-                      />
+                      <span className="absolute inset-0 rounded-full bg-primary/30 blur-xl -z-10" aria-hidden />
                     )}
                   </span>
                   <span
@@ -261,60 +241,29 @@ const LifecycleShowcase = () => {
 
       {/* Active slide */}
       <div className="relative rounded-3xl border border-border/60 bg-card/40 backdrop-blur-md p-8 md:p-12 overflow-hidden">
-        <div
-          className="absolute -top-32 -right-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
-          style={{ background: `hsl(${hue.from} / 0.25)` }}
-        />
-        <div
-          className="absolute -bottom-32 -left-32 w-80 h-80 blur-3xl rounded-full pointer-events-none transition-colors duration-700"
-          style={{ background: `hsl(${hue.to} / 0.25)` }}
-        />
+        <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-[hsl(265_85%_62%)]/20 blur-3xl rounded-full pointer-events-none" />
 
         <div key={active} className="relative grid md:grid-cols-[auto,1fr] gap-8 md:gap-12 items-start animate-fade-in">
           <div className="relative">
-            <div
-              className="absolute inset-0 rounded-3xl blur-2xl"
-              style={{ background: `hsl(${hue.solo} / 0.4)` }}
-              aria-hidden
-            />
-            <div
-              className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]"
-              style={{ background: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))` }}
-            >
+            <div className="absolute inset-0 rounded-3xl bg-primary/30 blur-2xl" aria-hidden />
+            <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] flex items-center justify-center shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
               <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" strokeWidth={1.6} />
             </div>
           </div>
 
           <div>
-            <div
-              className="text-xs font-semibold tracking-[0.25em] mb-3"
-              style={{ color: `hsl(${hue.solo})` }}
-            >
+            <div className="text-xs font-semibold tracking-[0.25em] text-primary mb-3">
               STAGE {current.step} OF {String(total).padStart(2, "0")}
             </div>
-            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
-              <span
-                style={{
-                  backgroundImage: `linear-gradient(135deg, hsl(${hue.from}), hsl(${hue.to}))`,
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {current.title}
-              </span>
-            </h3>
+            <h3 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{current.title}</h3>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
               {current.detail}
             </p>
             <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
               {current.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                  <CheckCircle2
-                    className="w-4 h-4 mt-0.5 shrink-0"
-                    strokeWidth={2}
-                    style={{ color: `hsl(${hue.solo})` }}
-                  />
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" strokeWidth={2} />
                   <span>{h}</span>
                 </li>
               ))}
@@ -324,11 +273,8 @@ const LifecycleShowcase = () => {
 
         <div className="relative mt-8 h-1 rounded-full bg-border/50 overflow-hidden">
           <div
-            className="absolute inset-y-0 left-0 transition-[width] duration-100 ease-linear"
-            style={{
-              width: `${progress * 100}%`,
-              background: `linear-gradient(to right, hsl(${hue.from}), hsl(${hue.to}))`,
-            }}
+            className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-[width] duration-100 ease-linear"
+            style={{ width: `${progress * 100}%` }}
           />
         </div>
 

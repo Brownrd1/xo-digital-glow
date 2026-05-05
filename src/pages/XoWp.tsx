@@ -173,11 +173,10 @@ const LifecycleShowcase = () => {
 
   const current = lifecycle[active];
   const Icon = current.icon;
-  const hue = stageHues[active];
 
   const railFullGradient =
     "linear-gradient(to right, " +
-    stageHues.map((h, i) => `hsl(${h.solo}) ${(i / (total - 1)) * 100}%`).join(", ") +
+    railHues.map((h, i) => `hsl(${h}) ${(i / (total - 1)) * 100}%`).join(", ") +
     ")";
   const filledPct = ((active + progress) / (total - 1)) * 100;
 
@@ -203,22 +202,6 @@ const LifecycleShowcase = () => {
           {lifecycle.map((s, i) => {
             const isActive = i === active;
             const isDone = i < active;
-            const h = stageHues[i];
-            const baseStyle = isActive
-              ? {
-                  background: `linear-gradient(135deg, hsl(${h.from}), hsl(${h.to}))`,
-                  borderColor: `hsl(${h.solo})`,
-                  color: "hsl(var(--primary-foreground))",
-                  boxShadow: `0 0 24px hsl(${h.solo} / 0.6)`,
-                  transform: "scale(1.1)",
-                }
-              : isDone
-              ? {
-                  background: `hsl(${h.solo} / 0.15)`,
-                  borderColor: `hsl(${h.solo} / 0.5)`,
-                  color: `hsl(${h.solo})`,
-                }
-              : {};
             return (
               <li key={s.step} className="flex justify-center">
                 <button
@@ -230,19 +213,16 @@ const LifecycleShowcase = () => {
                 >
                   <span
                     className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
-                      !isActive && !isDone
-                        ? "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
-                        : ""
+                      isActive
+                        ? "bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] border-primary text-primary-foreground shadow-[0_0_24px_hsl(243_76%_59%/0.6)] scale-110"
+                        : isDone
+                        ? "bg-primary/15 border-primary/40 text-primary"
+                        : "bg-card border-border text-muted-foreground group-hover:border-primary/40 group-hover:text-foreground"
                     }`}
-                    style={baseStyle}
                   >
                     {s.step}
                     {isActive && (
-                      <span
-                        className="absolute inset-0 rounded-full blur-xl -z-10"
-                        style={{ background: `hsl(${h.solo} / 0.4)` }}
-                        aria-hidden
-                      />
+                      <span className="absolute inset-0 rounded-full bg-primary/30 blur-xl -z-10" aria-hidden />
                     )}
                   </span>
                   <span

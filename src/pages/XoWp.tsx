@@ -14,8 +14,8 @@ import checkoutHero from "@/assets/xowp-checkout-hero.png";
 const pillars = [
   {
     icon: LayoutTemplate,
-    title: "Six branded checkout experiences",
-    body: "Corporate, modern, or bold — multi-step or single page. Fully themed to your business.",
+    title: "Branded client checkouts",
+    body: "Your colours, your logo — fully themed to your business.",
   },
   {
     icon: Workflow,

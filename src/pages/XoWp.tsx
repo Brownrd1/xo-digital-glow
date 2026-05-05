@@ -676,3 +676,355 @@ const XoWp = () => {
 };
 
 export default XoWp;
+
+// ──────────────────────────────────────────────────────────────
+// Pricing
+// ──────────────────────────────────────────────────────────────
+
+type FeatureRow = { label: string; free: boolean | "limited"; pro: boolean; ent: boolean };
+
+const featureGroups: { title: string; rows: FeatureRow[] }[] = [
+  {
+    title: "Checkout & quoting",
+    rows: [
+      { label: "All 6 checkout templates", free: false, pro: true, ent: true },
+      { label: "Multi-step and quick mode", free: true, pro: true, ent: true },
+      { label: "Quote mode", free: true, pro: true, ent: true },
+      { label: "Invoice mode", free: true, pro: true, ent: true },
+      { label: "Both mode (customer chooses)", free: true, pro: true, ent: true },
+      { label: "Smart invoice → quote protection", free: false, pro: true, ent: true },
+      { label: "PDF generation + token download link", free: true, pro: true, ent: true },
+      { label: "Bot protection", free: true, pro: true, ent: true },
+      { label: "Marketing lead capture", free: false, pro: true, ent: true },
+      { label: "Basic shipping calculation", free: true, pro: true, ent: true },
+    ],
+  },
+  {
+    title: "Management & intelligence",
+    rows: [
+      { label: "Limited AI setup & error chat", free: "limited", pro: false, ent: false },
+      { label: "Quote & invoice management dashboard", free: false, pro: true, ent: true },
+      { label: "Client portal (login, acceptance, payment)", free: false, pro: true, ent: true },
+      { label: "Advanced shipping methods", free: false, pro: true, ent: true },
+      { label: "Class-based and rules-based routing", free: false, pro: true, ent: true },
+      { label: "In-place line item editing + PDF regen", free: false, pro: true, ent: true },
+      { label: "Quote analytics & conversion tracking", free: false, pro: true, ent: true },
+      { label: "Full XO Intelligence panel", free: false, pro: true, ent: true },
+      { label: "Full AI chat (context-aware)", free: false, pro: true, ent: true },
+      { label: "Human support escalation", free: false, pro: true, ent: true },
+      { label: "Marketing export, sync, webhooks", free: false, pro: true, ent: true },
+      { label: "Data retention controls", free: false, pro: true, ent: true },
+    ],
+  },
+  {
+    title: "Growth & analytics",
+    rows: [
+      { label: "Dropped cart visibility", free: false, pro: false, ent: true },
+      { label: "Dropped cart recovery emails", free: false, pro: false, ent: true },
+      { label: "Google Analytics integration", free: false, pro: false, ent: true },
+      { label: "SEO insights", free: false, pro: false, ent: true },
+      { label: "Marketing auto-tagging & segments", free: false, pro: false, ent: true },
+    ],
+  },
+];
+
+const tiers = [
+  {
+    id: "free",
+    name: "Free",
+    icon: Rocket,
+    tagline: "Test the platform. Keep what works.",
+    monthly: "R 0",
+    annual: "R 0",
+    usd: "$0",
+    target: "Stores testing the platform — entry into the XO ecosystem.",
+    highlights: [
+      "Branded PDF quotes & invoices",
+      "Quote, invoice, or both modes",
+      "Smart token download links",
+      "Bot protection included",
+    ],
+    cta: "Start free",
+    featured: false,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    icon: Zap,
+    tagline: "The full B2B engine. Quotes, portal, AI.",
+    monthly: "R 699",
+    annual: "R 6,999",
+    usd: "$39",
+    target: "Growing B2B stores needing portal, routing, and AI.",
+    highlights: [
+      "All 6 checkout templates",
+      "Client portal & acceptance flow",
+      "Advanced shipping & rules routing",
+      "Full XO Intelligence + AI chat",
+    ],
+    cta: "Get Pro",
+    featured: true,
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    icon: Crown,
+    tagline: "Recovery, analytics, automation at scale.",
+    monthly: "R 1,799",
+    annual: "R 17,999",
+    usd: "$99",
+    target: "High-volume B2B with automation and full analytics.",
+    highlights: [
+      "Dropped cart recovery emails",
+      "Google Analytics + SEO insights",
+      "Marketing auto-tagging & segments",
+      "Everything in Pro",
+    ],
+    cta: "Talk to sales",
+    featured: false,
+  },
+] as const;
+
+const Cell = ({ value }: { value: boolean | "limited" }) => {
+  if (value === "limited") {
+    return (
+      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 text-foreground text-[10px] font-bold border border-primary/40">
+        L
+      </span>
+    );
+  }
+  if (value) {
+    return (
+      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] shadow-[0_0_12px_hsl(243_76%_59%/0.5)]">
+        <Check className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={3} />
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full border border-border/60 bg-muted/30 text-muted-foreground/60">
+      <Minus className="w-3 h-3" strokeWidth={2.5} />
+    </span>
+  );
+};
+
+const PricingSection = () => {
+  const [annual, setAnnual] = useState(true);
+
+  return (
+    <section id="pricing" className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-primary/10 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[hsl(265_85%_62%)]/15 blur-[160px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-xs font-medium text-primary mb-5">
+            <Sparkles className="w-3.5 h-3.5" />
+            Plans & pricing
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Pick the plan that <span className="gradient-text">fits your business</span>.
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Start free. Upgrade when you're ready. Cancel anytime — no friction.
+          </p>
+        </div>
+
+        {/* Billing toggle */}
+        <div className="flex justify-center mb-14">
+          <div className="inline-flex items-center gap-1 p-1 rounded-full border border-border/60 bg-card/40 backdrop-blur-sm">
+            <button
+              onClick={() => setAnnual(false)}
+              className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all ${
+                !annual ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {!annual && (
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shadow-[0_4px_16px_-4px_hsl(243_76%_59%/0.6)]" />
+              )}
+              <span className="relative">Monthly</span>
+            </button>
+            <button
+              onClick={() => setAnnual(true)}
+              className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all ${
+                annual ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {annual && (
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] shadow-[0_4px_16px_-4px_hsl(243_76%_59%/0.6)]" />
+              )}
+              <span className="relative inline-flex items-center gap-2">
+                Annual
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold ${annual ? "bg-white/20" : "bg-primary/20 text-primary"}`}>
+                  Save ~17%
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Tier cards */}
+        <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20">
+          {tiers.map((tier) => {
+            const Icon = tier.icon;
+            return (
+              <div
+                key={tier.id}
+                className={`group relative rounded-3xl p-[1px] transition-all duration-300 ${
+                  tier.featured
+                    ? "bg-gradient-to-br from-primary via-[hsl(265_85%_62%)] to-primary shadow-[0_30px_80px_-20px_hsl(243_76%_59%/0.5)] lg:-translate-y-4"
+                    : "bg-border/60 hover:bg-gradient-to-br hover:from-primary/40 hover:to-[hsl(265_85%_62%)]/40"
+                }`}
+              >
+                {tier.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                    <div className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] text-primary-foreground shadow-[0_4px_16px_-2px_hsl(243_76%_59%/0.7)]">
+                      Most popular
+                    </div>
+                  </div>
+                )}
+                <div className={`relative h-full rounded-3xl p-8 ${
+                  tier.featured
+                    ? "bg-card/95 backdrop-blur-xl"
+                    : "bg-card/50 backdrop-blur-sm"
+                }`}>
+                  {tier.featured && (
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-[hsl(265_85%_62%)]/10 pointer-events-none" />
+                  )}
+                  <div className="relative">
+                    {/* Icon + name */}
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-xl bg-primary/40 blur-xl" aria-hidden />
+                        <div className="relative rounded-xl bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] p-2.5 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.2)]">
+                          <Icon className="w-5 h-5 text-primary-foreground" strokeWidth={1.75} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-xl font-bold">{tier.name}</div>
+                        <div className="text-xs text-muted-foreground">{tier.tagline}</div>
+                      </div>
+                    </div>
+
+                    {/* Price */}
+                    <div className="mb-6">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-5xl font-extrabold tracking-tight">
+                          {annual ? tier.annual : tier.monthly}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          /{annual ? "yr" : "mo"}
+                        </span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        Intl. equivalent: {tier.usd}{tier.id === "free" ? "" : "/mo"}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <Button
+                      variant={tier.featured ? "hero" : "hero-outline"}
+                      size="lg"
+                      className="w-full mb-6"
+                      asChild
+                    >
+                      <Link to="/#contact">
+                        {tier.cta}
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    </Button>
+
+                    {/* Highlights */}
+                    <div className="text-xs uppercase tracking-wider font-semibold text-muted-foreground mb-3">
+                      What's included
+                    </div>
+                    <ul className="space-y-3">
+                      {tier.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-3 text-sm">
+                          <span className="mt-0.5 inline-flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-br from-primary to-[hsl(265_85%_62%)] shrink-0">
+                            <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />
+                          </span>
+                          <span className="text-foreground/85">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-6 pt-6 border-t border-border/40 text-xs text-muted-foreground leading-relaxed">
+                      {tier.target}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Comparison table */}
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">Compare every feature</h3>
+            <p className="text-sm text-muted-foreground">
+              The full breakdown — so you know exactly what you're getting.
+            </p>
+          </div>
+
+          <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-border via-primary/30 to-border">
+            <div className="rounded-3xl bg-card/60 backdrop-blur-sm overflow-hidden">
+              {/* Header row */}
+              <div className="grid grid-cols-[1.6fr_repeat(3,1fr)] md:grid-cols-[2fr_repeat(3,1fr)] items-center px-5 md:px-8 py-5 border-b border-border/40 bg-card/40">
+                <div className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">
+                  Feature
+                </div>
+                {["Free", "Pro", "Enterprise"].map((n) => (
+                  <div
+                    key={n}
+                    className={`text-center text-sm font-bold ${
+                      n === "Pro" ? "text-foreground" : "text-foreground/80"
+                    }`}
+                  >
+                    {n === "Pro" && (
+                      <span className="inline-block px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider mr-1.5 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] text-primary-foreground align-middle">
+                        ★
+                      </span>
+                    )}
+                    {n}
+                  </div>
+                ))}
+              </div>
+
+              {featureGroups.map((group) => (
+                <div key={group.title}>
+                  <div className="px-5 md:px-8 py-3 bg-gradient-to-r from-primary/10 via-[hsl(265_85%_62%)]/5 to-transparent border-b border-border/30">
+                    <div className="text-xs uppercase tracking-wider font-semibold gradient-text">
+                      {group.title}
+                    </div>
+                  </div>
+                  {group.rows.map((row, i) => (
+                    <div
+                      key={row.label}
+                      className={`grid grid-cols-[1.6fr_repeat(3,1fr)] md:grid-cols-[2fr_repeat(3,1fr)] items-center px-5 md:px-8 py-4 text-sm transition-colors hover:bg-primary/5 ${
+                        i !== group.rows.length - 1 ? "border-b border-border/20" : "border-b border-border/30"
+                      }`}
+                    >
+                      <div className="text-foreground/85 pr-3">{row.label}</div>
+                      <div className="flex justify-center"><Cell value={row.free} /></div>
+                      <div className="flex justify-center"><Cell value={row.pro} /></div>
+                      <div className="flex justify-center"><Cell value={row.ent} /></div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-5">
+            <span className="inline-flex items-center gap-1.5 mr-3">
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 text-[8px] font-bold border border-primary/40">L</span>
+              Limited
+            </span>
+            Annual pricing reflects ~17% saving vs. monthly billing.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -184,26 +184,31 @@ const LifecycleShowcase = () => {
     <div className="max-w-6xl mx-auto">
       {/* Stepper rail */}
       <div className="relative mb-10">
-        <div className="absolute left-0 right-0 top-5 md:top-6 h-px bg-border/60" aria-hidden />
-        <div
-          className="absolute left-0 top-5 md:top-6 h-px transition-all duration-300 overflow-hidden"
-          style={{ width: `${filledPct}%` }}
-          aria-hidden
-        >
+        <ol className="relative flex items-start justify-between">
+          {/* Background track + filled gradient — positioned at dot vertical center, between first/last dot horizontally */}
           <div
-            className="h-full"
-            style={{
-              width: `${(100 / Math.max(filledPct, 0.0001)) * 100}%`,
-              backgroundImage: railFullGradient,
-            }}
+            className="absolute top-5 md:top-6 h-px bg-border/60 pointer-events-none"
+            style={{ left: "calc((100% / 6) / 2)", right: "calc((100% / 6) / 2)" }}
+            aria-hidden
           />
-        </div>
-        <ol className="relative grid grid-cols-6 gap-2">
+          <div
+            className="absolute top-5 md:top-6 h-[2px] -translate-y-px pointer-events-none transition-[width] duration-150 ease-linear rounded-full"
+            style={{
+              left: "calc((100% / 6) / 2)",
+              width: `calc((100% - (100% / 6)) * ${filledPct / 100})`,
+              backgroundImage: railFullGradient,
+              backgroundSize: `${(100 / Math.max(filledPct, 0.0001)) * 100}% 100%`,
+              backgroundRepeat: "no-repeat",
+              boxShadow: filledPct > 0 ? "0 0 12px hsl(243 76% 59% / 0.6)" : "none",
+            }}
+            aria-hidden
+          />
+
           {lifecycle.map((s, i) => {
             const isActive = i === active;
             const isDone = i < active;
             return (
-              <li key={s.step} className="flex justify-center">
+              <li key={s.step} className="flex flex-col items-center gap-2 flex-1 min-w-0">
                 <button
                   type="button"
                   onClick={() => goTo(i)}

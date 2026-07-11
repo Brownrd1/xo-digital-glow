@@ -116,12 +116,12 @@ const Contact = () => {
 
                 <div><label htmlFor="message" className="mb-2 block text-sm font-medium">Tell us about the workflow *</label><Textarea id="message" name="message" required minLength={20} maxLength={4000} rows={6} placeholder="What does your business sell, how do customers buy, and where does the current WooCommerce process become difficult?" className="resize-none bg-background/60" /></div>
 
-                <label className="flex items-start gap-3 text-xs leading-relaxed text-muted-foreground"><input name="consent" type="checkbox" required className="mt-1 h-4 w-4 rounded border-input accent-primary" /><span>I agree that XO Digital Systems may use these details to review my enquiry and contact me about XO. We will not add you to marketing without separate permission.</span></label>
+                <label className="flex items-start gap-3 text-xs leading-relaxed text-muted-foreground"><input name="consent" type="checkbox" required className="mt-1 h-4 w-4 rounded border-input accent-primary" /><span>I agree that XO Digital Systems may use these details to review my enquiry and contact me about XO. We will not add you to marketing without separate permission. See the <a href="/privacy" className="font-medium text-foreground underline underline-offset-4">website privacy notice</a>.</span></label>
 
                 {state === "error" && <div role="alert" className="rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive-foreground"><p>{errorMessage}</p><a href="mailto:admin@xo.systems.com" className="mt-2 inline-block font-semibold underline underline-offset-4">Email admin@xo.systems.com</a></div>}
 
                 <Button type="submit" variant="hero" size="xl" className="w-full sm:w-auto" disabled={state === "submitting"}>
-                  {state === "submitting" ? "Sending securely..." : <><span>Request early access</span><Send className="ml-2 h-4 w-4" /></>}
+                  {state === "submitting" ? "Sending..." : <><span>Request early access</span><Send className="ml-2 h-4 w-4" /></>}
                 </Button>
               </form>
             )}

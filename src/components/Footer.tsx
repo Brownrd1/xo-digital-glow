@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Instagram, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 
 const footerLinks = {
@@ -14,18 +14,12 @@ const footerLinks = {
     { label: "Plans", href: "/xo-wp#pricing" },
   ],
   helpful: [
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Contact", href: "/#contact" },
+    { label: "Trust & Support", href: "/trust" },
+    { label: "Website Privacy", href: "/privacy" },
   ],
 };
-
-const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-];
 
 const Footer = () => {
   return (
@@ -62,19 +56,7 @@ const Footer = () => {
               XO Digital Systems is building connected commerce software for businesses with complex buying journeys.
             </p>
 
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted/80 transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+            <p className="text-sm text-muted-foreground">XO for WooCommerce is currently in controlled early access.</p>
           </div>
 
           {/* Company Links */}

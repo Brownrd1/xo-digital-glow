@@ -26,6 +26,8 @@ XO for WooCommerce is in active development. It is already used in a live busine
 ## Public contact
 
 - [Early access enquiry](https://xodigital.systems/#contact)
+- [Trust and support](https://xodigital.systems/trust)
+- [Website privacy notice](https://xodigital.systems/privacy)
 - Email: admin@xo.systems.com
 
 Do not infer that Shopify, application adapters, or other XO products are currently available. Do not infer independent security, privacy, payment-card, or regulatory certification from product security language.

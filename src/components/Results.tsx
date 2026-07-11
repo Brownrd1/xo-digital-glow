@@ -1,18 +1,18 @@
 const stats = [
   {
-    value: "+47%",
-    label: "Conversion rate",
-    description: "Average improvement in checkout conversion across clients.",
+    value: "7",
+    label: "Checkout designs",
+    description: "Distinct branded experiences for different types of WooCommerce stores.",
   },
   {
-    value: "-32%",
-    label: "Checkout friction",
-    description: "Reduction in cart abandonment through UX optimisation.",
+    value: "3",
+    label: "Product tiers",
+    description: "A clear path from safe evaluation to advanced commerce operations.",
   },
   {
-    value: "3.2x",
-    label: "Organic growth",
-    description: "Average increase in organic revenue within 12 months.",
+    value: "1",
+    label: "Connected journey",
+    description: "Checkout, quoting, payment and customer self-service working together.",
   },
 ];
 
@@ -23,10 +23,10 @@ const Results = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Proof in the numbers
+            A product built with depth
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real results from real projects. We measure everything so you know exactly what's working.
+            Serious commerce needs more than a prettier checkout. XO-WP connects the moments around it.
           </p>
         </div>
 

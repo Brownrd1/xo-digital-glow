@@ -1,125 +1,104 @@
+import { ArrowRight, Check, FileText, ShoppingCart, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-import { Globe, Code2, Megaphone, Search, BarChart3 } from "lucide-react";
-
-const timelineNodes = [
-  {
-    id: 1,
-    icon: <Globe className="w-5 h-5" />,
-    title: "Web Design",
-    description: "Design your platform",
-    status: "completed" as const,
-    energy: 100,
-    relatedIds: [2, 4],
-  },
-  {
-    id: 2,
-    icon: <Code2 className="w-5 h-5" />,
-    title: "Software Development",
-    description: "Advanced tools for business",
-    status: "completed" as const,
-    energy: 100,
-    relatedIds: [1, 5],
-  },
-  {
-    id: 3,
-    icon: <Megaphone className="w-5 h-5" />,
-    title: "Marketing",
-    description: "Build your brand",
-    status: "completed" as const,
-    energy: 100,
-    relatedIds: [4, 5],
-  },
-  {
-    id: 4,
-    icon: <Search className="w-5 h-5" />,
-    title: "SEO",
-    description: "Get seen online",
-    status: "completed" as const,
-    energy: 100,
-    relatedIds: [1, 3],
-  },
-  {
-    id: 5,
-    icon: <BarChart3 className="w-5 h-5" />,
-    title: "Data Analysis",
-    description: "Understand your market",
-    status: "completed" as const,
-    energy: 100,
-    relatedIds: [2, 3],
-  },
-];
 
 const HeroAlt = () => {
   return (
-    <section className="relative min-h-screen pt-20 flex items-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
-      
-      {/* Subtle grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.02]"
+    <section className="relative min-h-[100svh] overflow-hidden pt-20 flex items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,hsl(var(--primary)/0.16),transparent_36%),linear-gradient(145deg,hsl(var(--background)),hsl(var(--background)),hsl(var(--secondary)/0.16))]" />
+      <div
+        className="absolute inset-0 opacity-[0.025]"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: "64px 64px",
+          maskImage: "linear-gradient(to bottom, black, transparent 88%)",
         }}
       />
 
-      {/* Content wrapper - centered with max-width */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-8 lg:py-0">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Left - Text Content */}
-          <div className="order-1 lg:order-1 text-center lg:text-left w-full lg:w-1/2 lg:flex-shrink-0 pt-4 lg:pt-0">
-            <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 opacity-0 animate-fade-in"
-              style={{ animationDelay: '0.1s' }}
-            >
-              <span className="text-foreground">Intelligent ecommerce systems.</span>
-              <br />
-              <span className="gradient-text">Built to perform.</span>
-              <br />
-              <span className="text-foreground">Designed to grow.</span>
-            </h2>
-            
-            <p 
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 opacity-0 animate-fade-in"
-              style={{ animationDelay: '0.3s' }}
-            >
-              We build and optimise ecommerce platforms using software, marketing, 
-              data, and applied AI.
+      <div className="container relative z-10 mx-auto px-6 py-16 md:py-24 lg:py-20">
+        <div className="grid min-w-0 items-center gap-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(500px,1.08fr)] lg:gap-16">
+          <div className="min-w-0 max-w-3xl">
+            <div className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary sm:text-xs sm:tracking-[0.18em]">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary))]" />
+              Building the future of WooCommerce
+            </div>
+
+            <h1 className="text-balance text-[clamp(2.75rem,7vw,5.75rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground">
+              Commerce systems for businesses that have
+              <span className="block bg-gradient-to-r from-primary via-indigo-300 to-sky-300 bg-clip-text text-transparent">
+                outgrown basic checkout.
+              </span>
+            </h1>
+
+            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+              XO Digital Systems creates connected ecommerce software for complex buying journeys—starting with XO-WP, our modern checkout and B2B revenue platform for WooCommerce.
             </p>
 
-            <div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fade-in"
-              style={{ animationDelay: '0.5s' }}
-            >
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button variant="hero" size="xl" asChild>
-                <a href="#services">What we do</a>
+                <a href="/xo-wp">
+                  Explore XO-WP
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </Button>
               <Button variant="hero-outline" size="xl" asChild>
-                <a href="#contact">Contact</a>
+                <a href="#contact">Talk to us</a>
               </Button>
+            </div>
+
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              {["Built for WooCommerce", "Seven checkout designs", "Free, Pro & Enterprise"].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-primary" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Right - Radial Orbital Timeline */}
-          <div className="order-2 lg:order-2 w-full lg:w-1/2 flex justify-center py-4 lg:py-0">
-            <div 
-              className="relative w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] animate-fade-in"
-              style={{ animationDelay: '0.2s' }}
-            >
-              {/* Glow background */}
-              <div className="absolute -inset-8 lg:-inset-16 bg-primary/10 blur-[80px] rounded-full" />
-              
-              <RadialOrbitalTimeline nodes={timelineNodes} className="relative z-10" />
+          <div className="relative mx-auto min-w-0 w-full max-w-[680px] lg:max-w-none">
+            <div className="absolute inset-10 rounded-full bg-primary/20 blur-[110px]" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/85 p-3 shadow-[0_36px_100px_-30px_hsl(var(--primary)/0.35)] backdrop-blur-xl sm:p-5">
+              <div className="rounded-[1.25rem] border border-border bg-background/90 p-4 sm:p-6">
+                <div className="flex items-center justify-between border-b border-border pb-4">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">XO-WP</p>
+                    <p className="mt-1 font-semibold text-foreground">Connected commerce journey</p>
+                  </div>
+                  <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">Built for real business</span>
+                </div>
+
+                <div className="grid gap-3 py-4 sm:grid-cols-3">
+                  {[
+                    { icon: ShoppingCart, label: "Modern checkout", detail: "Branded buying experience" },
+                    { icon: FileText, label: "Quote to payment", detail: "A connected B2B journey" },
+                    { icon: Truck, label: "Smarter delivery", detail: "Built for complex orders" },
+                  ].map(({ icon: Icon, label, detail }) => (
+                    <div key={label} className="rounded-xl border border-border bg-card p-4">
+                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.6} />
+                      <p className="mt-5 text-sm font-semibold text-foreground">{label}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="rounded-xl border border-border bg-gradient-to-r from-primary/10 to-transparent p-4 sm:p-5">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">One journey. Fewer disconnected tools.</p>
+                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">From the first checkout step to the final customer action.</p>
+                    </div>
+                    <div className="flex items-center gap-1.5" aria-label="Connected workflow">
+                      {[0, 1, 2, 3].map((step) => (
+                        <span key={step} className={`h-2 rounded-full ${step === 3 ? "w-8 bg-primary" : "w-2 bg-primary/35"}`} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

@@ -11,7 +11,7 @@ import networkVisual from "@/assets/xowp-network.jpg";
 import checkoutFlow from "@/assets/xowp-checkout-flow.png";
 import checkoutHero from "@/assets/xowp-checkout-hero.png";
 
-const pillars = [
+const legacyPillars = [
   {
     icon: LayoutTemplate,
     title: "Branded client checkouts",
@@ -42,6 +42,17 @@ const pillars = [
     title: "Built-in business intelligence",
     body: "Track quote velocity, conversions, and revenue trends — directly inside your dashboard.",
   },
+];
+
+const pillars = [
+  { icon: LayoutTemplate, title: "Seven branded checkout designs", body: "Choose a responsive quick or guided experience, then shape it around your store." },
+  { icon: Workflow, title: "Quote-to-payment workflow", body: "Move complex orders from enquiry and review through approval, payment, and fulfilment." },
+  { icon: Truck, title: "Smarter shipping decisions", body: "Handle collection, delivery rules, product restrictions, and uncertain freight with confidence." },
+  { icon: ShieldCheck, title: "Safer commercial outcomes", body: "Prevent uncertain delivery costs from becoming incorrect payable orders." },
+  { icon: UserCog, title: "Customer self-service", body: "Give clients a branded place to review, accept, pay, and follow their commercial activity." },
+  { icon: FileText, title: "Connected documents", body: "Keep quotes, invoices, updates, and customer access attached to the commercial journey." },
+  { icon: BrainCircuit, title: "Revenue visibility", body: "Understand quote performance, customer activity, and the opportunities that need attention." },
+  { icon: Repeat, title: "Recovery and automation", body: "Help your team follow up consistently and recover valuable opportunities on Enterprise." },
 ];
 
 const lifecycle = [
@@ -683,7 +694,7 @@ export default XoWp;
 
 type FeatureRow = { label: string; free: boolean | "limited"; pro: boolean; ent: boolean };
 
-const featureGroups: { title: string; rows: FeatureRow[] }[] = [
+const legacyFeatureGroups: { title: string; rows: FeatureRow[] }[] = [
   {
     title: "Checkout & quoting",
     rows: [
@@ -721,6 +732,36 @@ const featureGroups: { title: string; rows: FeatureRow[] }[] = [
       { label: "Marketing auto-tagging & segments", free: false, pro: false, ent: true },
     ],
   },
+];
+
+const featureGroups: { title: string; rows: FeatureRow[] }[] = [
+  { title: "Checkout & payments", rows: [
+    { label: "Core WooCommerce checkout experience", free: true, pro: true, ent: true },
+    { label: "Seven checkout designs", free: false, pro: true, ent: true },
+    { label: "Quick and guided checkout modes", free: true, pro: true, ent: true },
+    { label: "Marketing consent capture", free: true, pro: true, ent: true },
+    { label: "Test / sandbox payment mode", free: true, pro: true, ent: true },
+    { label: "Live payment mode", free: false, pro: true, ent: true },
+    { label: "Automatic discount rules", free: false, pro: true, ent: true },
+  ]},
+  { title: "B2B operations", rows: [
+    { label: "Quote & invoice management dashboard", free: false, pro: true, ent: true },
+    { label: "Client portal, acceptance & payment", free: false, pro: true, ent: true },
+    { label: "Client business profiles", free: false, pro: true, ent: true },
+    { label: "Advanced shipping methods & routing", free: false, pro: true, ent: true },
+    { label: "Quote and pipeline analytics", free: false, pro: true, ent: true },
+    { label: "Digital products & subscriptions", free: false, pro: true, ent: true },
+    { label: "Data management controls", free: false, pro: true, ent: true },
+  ]},
+  { title: "Assistance, marketing & growth", rows: [
+    { label: "Setup & troubleshooting assistant", free: "limited", pro: true, ent: true },
+    { label: "Marketing lists, segments & connections", free: false, pro: true, ent: true },
+    { label: "Dropped-checkout recovery", free: false, pro: false, ent: true },
+    { label: "Quote follow-up automation", free: false, pro: false, ent: true },
+    { label: "Customer opportunity intelligence", free: false, pro: false, ent: true },
+    { label: "Web traffic & SEO insights", free: false, pro: false, ent: true },
+    { label: "Client 360 workspace", free: false, pro: false, ent: true },
+  ]},
 ];
 
 const tiers = [

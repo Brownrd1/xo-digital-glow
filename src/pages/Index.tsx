@@ -13,24 +13,24 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>XO Digital Systems | Intelligent Ecommerce Solutions</title>
+        <title>XO Digital Systems | Modern WooCommerce Commerce Systems</title>
         <meta 
           name="description" 
-          content="We build and optimise ecommerce platforms using software, marketing, data, and applied AI. Premium digital systems designed to grow your business." 
+          content="XO Digital Systems creates connected ecommerce software for complex buying journeys, including XO-WP for modern WooCommerce checkout and B2B commerce." 
         />
-        <meta name="keywords" content="ecommerce, digital marketing, SEO, web development, AI, conversion optimization" />
+        <meta name="keywords" content="WooCommerce checkout, B2B ecommerce, WooCommerce quotes, ecommerce software, XO-WP" />
         <link rel="canonical" href="https://xodigital.systems" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="XO Digital Systems | Intelligent Ecommerce Solutions" />
-        <meta property="og:description" content="We build and optimise ecommerce platforms using software, marketing, data, and applied AI." />
+        <meta property="og:title" content="XO Digital Systems | Modern WooCommerce Commerce Systems" />
+        <meta property="og:description" content="Connected ecommerce software for businesses that have outgrown basic checkout." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://xodigital.systems" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="XO Digital Systems | Intelligent Ecommerce Solutions" />
-        <meta name="twitter:description" content="Premium ecommerce systems built to perform and designed to grow." />
+        <meta name="twitter:title" content="XO Digital Systems | Modern WooCommerce Commerce Systems" />
+        <meta name="twitter:description" content="Connected ecommerce software for businesses that have outgrown basic checkout." />
       </Helmet>
 
       <div className="min-h-screen bg-background">

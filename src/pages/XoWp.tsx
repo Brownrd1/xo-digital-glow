@@ -737,14 +737,19 @@ const legacyFeatureGroups: { title: string; rows: FeatureRow[] }[] = [
 const featureGroups: { title: string; rows: FeatureRow[] }[] = [
   { title: "Checkout & payments", rows: [
     { label: "Core WooCommerce checkout experience", free: true, pro: true, ent: true },
-    { label: "Seven checkout designs", free: false, pro: true, ent: true },
+    { label: "Checkout design library", free: "limited", pro: true, ent: true },
     { label: "Quick and guided checkout modes", free: true, pro: true, ent: true },
+    { label: "WooCommerce-native order handling", free: true, pro: true, ent: true },
+    { label: "Basic shipping calculation", free: true, pro: true, ent: true },
     { label: "Marketing consent capture", free: true, pro: true, ent: true },
     { label: "Test / sandbox payment mode", free: true, pro: true, ent: true },
     { label: "Live payment mode", free: false, pro: true, ent: true },
     { label: "Automatic discount rules", free: false, pro: true, ent: true },
   ]},
   { title: "B2B operations", rows: [
+    { label: "Customer quotation requests", free: true, pro: true, ent: true },
+    { label: "Branded quote & invoice documents", free: true, pro: true, ent: true },
+    { label: "Secure customer document links", free: true, pro: true, ent: true },
     { label: "Quote & invoice management dashboard", free: false, pro: true, ent: true },
     { label: "Client portal, acceptance & payment", free: false, pro: true, ent: true },
     { label: "Client business profiles", free: false, pro: true, ent: true },
@@ -764,7 +769,7 @@ const featureGroups: { title: string; rows: FeatureRow[] }[] = [
   ]},
 ];
 
-const tiers = [
+const legacyTiers = [
   {
     id: "free",
     name: "Free",
@@ -821,11 +826,68 @@ const tiers = [
   },
 ] as const;
 
+const tiers = [
+  {
+    id: "free",
+    name: "Free",
+    icon: Rocket,
+    tagline: "A capable checkout and quotation system.",
+    monthly: "R 0",
+    annual: "R 0",
+    usd: "$0",
+    target: "For WooCommerce stores that need a better checkout and practical quotation workflow without another paid plugin.",
+    highlights: [
+      "Selected branded checkout designs",
+      "WooCommerce-based orders",
+      "Customer quotation requests",
+      "Basic shipping and documents",
+    ],
+    cta: "Start free",
+    featured: false,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    icon: Zap,
+    tagline: "The complete managed B2B workflow.",
+    monthly: "R 699",
+    annual: "R 6,999",
+    usd: "$39",
+    target: "For growing B2B stores needing managed quotes, customer self-service, live payments, and advanced operations.",
+    highlights: [
+      "All seven checkout designs",
+      "Managed quote and invoice dashboard",
+      "Client portal and live payments",
+      "Advanced shipping and analytics",
+    ],
+    cta: "Get Pro",
+    featured: true,
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    icon: Crown,
+    tagline: "Recovery, intelligence, and automation.",
+    monthly: "R 1,799",
+    annual: "R 17,999",
+    usd: "$99",
+    target: "For ambitious B2B teams that need recovery, automation, and deeper customer intelligence.",
+    highlights: [
+      "Checkout and quote recovery",
+      "Customer opportunity intelligence",
+      "Automation and Client 360",
+      "Everything in Pro",
+    ],
+    cta: "Talk to sales",
+    featured: false,
+  },
+] as const;
+
 const Cell = ({ value }: { value: boolean | "limited" }) => {
   if (value === "limited") {
     return (
-      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 text-foreground text-[10px] font-bold border border-primary/40">
-        L
+      <span title="Included with plan limits" className="inline-flex min-w-10 items-center justify-center rounded-full border border-primary/40 bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 px-2 py-1 text-[9px] font-bold text-foreground">
+        CORE
       </span>
     );
   }
@@ -1054,8 +1116,8 @@ const PricingSection = () => {
 
           <p className="text-center text-xs text-muted-foreground mt-5">
             <span className="inline-flex items-center gap-1.5 mr-3">
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 text-[8px] font-bold border border-primary/40">L</span>
-              Limited
+              <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-primary/30 to-[hsl(265_85%_62%)]/30 px-1.5 py-0.5 text-[8px] font-bold border border-primary/40">CORE</span>
+              Included with plan limits
             </span>
             Annual pricing reflects ~17% saving vs. monthly billing.
           </p>

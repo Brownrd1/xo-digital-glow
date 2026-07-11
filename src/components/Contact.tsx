@@ -91,7 +91,7 @@ const Contact = () => {
                 <Button type="button" variant="hero-outline" className="mt-7" onClick={() => setState("idle")}>Send another enquiry</Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5" aria-busy={state === "submitting"}>
                 <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
                   <label htmlFor="company_website">Leave this field empty</label>
                   <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" />

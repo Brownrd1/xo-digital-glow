@@ -11,7 +11,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
+    <main id="main-content" className="flex min-h-screen items-center justify-center bg-background" tabIndex={-1}>
       <div className="text-center px-6">
         <h1 className="mb-4 text-8xl font-extrabold text-primary">404</h1>
         <p className="mb-2 text-2xl font-semibold text-foreground">Page not found</p>
@@ -25,7 +25,7 @@ const NotFound = () => {
           </a>
         </Button>
       </div>
-    </div>
+    </main>
   );
 };
 

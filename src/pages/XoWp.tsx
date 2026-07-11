@@ -149,12 +149,22 @@ const railHues = [
 
 const LifecycleShowcase = () => {
   const [active, setActive] = useState(0);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [progress, setProgress] = useState(0);
   const startRef = useRef<number>(performance.now());
   const rafRef = useRef<number>();
 
   const total = lifecycle.length;
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const stopForReducedMotion = (event: MediaQueryListEvent) => {
+      if (event.matches) setPlaying(false);
+    };
+
+    reducedMotion.addEventListener("change", stopForReducedMotion);
+    return () => reducedMotion.removeEventListener("change", stopForReducedMotion);
+  }, []);
 
   useEffect(() => {
     if (!playing) return;
@@ -224,7 +234,7 @@ const LifecycleShowcase = () => {
                   onClick={() => goTo(i)}
                   aria-label={`Go to step ${s.step}: ${s.title}`}
                   aria-current={isActive ? "step" : undefined}
-                  className="group relative flex flex-col items-center gap-2"
+                  className="group relative flex flex-col items-center gap-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
                   <span
                     className={`relative w-10 h-10 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
@@ -286,7 +296,7 @@ const LifecycleShowcase = () => {
           </div>
         </div>
 
-        <div className="relative mt-8 h-1 rounded-full bg-border/50 overflow-hidden">
+        <div className="relative mt-8 h-1 overflow-hidden rounded-full bg-border/50" aria-hidden="true">
           <div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-[hsl(265_85%_62%)] transition-[width] duration-100 ease-linear"
             style={{ width: `${progress * 100}%` }}
@@ -297,7 +307,7 @@ const LifecycleShowcase = () => {
           <button
             type="button"
             onClick={() => goTo(active - 1)}
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="Previous stage"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -306,7 +316,7 @@ const LifecycleShowcase = () => {
           <button
             type="button"
             onClick={() => setPlaying((p) => !p)}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-background/60 text-xs font-medium text-foreground/80 hover:border-primary/40 hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 text-xs font-medium text-foreground/80 transition-colors hover:border-primary/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label={playing ? "Pause auto-play" : "Resume auto-play"}
           >
             {playing ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -315,7 +325,7 @@ const LifecycleShowcase = () => {
           <button
             type="button"
             onClick={() => goTo(active + 1)}
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="Next stage"
           >
             Next
@@ -369,7 +379,7 @@ const XoWp = () => {
       <div className="min-h-screen bg-background">
         <Header />
 
-        <main>
+        <main id="main-content" tabIndex={-1}>
           {/* Hero */}
           <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
             {/* Ambient glows */}

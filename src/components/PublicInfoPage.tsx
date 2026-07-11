@@ -18,7 +18,7 @@ const PublicInfoPage = ({ eyebrow, title, intro, updated, children }: PublicInfo
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <header className="relative overflow-hidden border-b border-border/60 pb-16 pt-32 md:pb-20 md:pt-40">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(243_76%_59%/0.18),transparent_55%)]" aria-hidden="true" />
           <div className="container relative mx-auto max-w-5xl px-6">

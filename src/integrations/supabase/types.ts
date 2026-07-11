@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      website_enquiries: {
+        Row: {
+          id: string
+          created_at: string
+          name: string
+          email: string
+          company: string | null
+          website: string | null
+          interest: "early_access" | "free" | "pro" | "enterprise" | "agency" | "other"
+          message: string
+          source_path: string
+          status: "new" | "contacted" | "qualified" | "closed" | "spam"
+          consent_at: string
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          name: string
+          email: string
+          company?: string | null
+          website?: string | null
+          interest: "early_access" | "free" | "pro" | "enterprise" | "agency" | "other"
+          message: string
+          source_path?: string
+          status?: "new"
+          consent_at: string
+        }
+        Update: never
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

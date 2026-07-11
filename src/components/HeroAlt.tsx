@@ -14,22 +14,22 @@ const HeroAlt = () => {
         }}
       />
 
-      <div className="container relative z-10 mx-auto px-6 py-16 md:py-24 lg:py-20">
-        <div className="grid min-w-0 items-center gap-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(500px,1.08fr)] lg:gap-16">
-          <div className="min-w-0 max-w-3xl">
+      <div className="container relative z-10 mx-auto w-full max-w-full px-6 py-16 md:py-24 lg:py-20">
+        <div className="grid w-full min-w-0 max-w-full items-center gap-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(500px,1.08fr)] lg:gap-16">
+          <div className="w-full min-w-0 max-w-full lg:max-w-3xl">
             <div className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary sm:text-xs sm:tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary))]" />
               Introducing XO Commerce
             </div>
 
-            <h1 className="text-balance text-[clamp(2.75rem,7vw,5.75rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground">
+            <h1 className="w-full max-w-full break-words text-[clamp(2.6rem,7vw,5.75rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-balance">
               Commerce systems for businesses that have
               <span className="block bg-gradient-to-r from-primary via-indigo-300 to-sky-300 bg-clip-text text-transparent">
                 outgrown basic checkout.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <p className="mt-7 w-full max-w-2xl break-words text-lg leading-relaxed text-muted-foreground sm:text-pretty md:text-xl">
               XO Digital Systems is building XO Commerce: connected software for complex buying journeys. Our first product brings the platform to WooCommerce.
             </p>
 
@@ -55,7 +55,7 @@ const HeroAlt = () => {
             </div>
           </div>
 
-          <div className="relative mx-auto min-w-0 w-full max-w-[680px] lg:max-w-none">
+          <div className="relative mx-auto w-full min-w-0 max-w-[calc(100vw-3rem)] sm:max-w-[680px] lg:max-w-none">
             <div className="absolute inset-10 rounded-full bg-primary/20 blur-[110px]" />
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/85 p-3 shadow-[0_36px_100px_-30px_hsl(var(--primary)/0.35)] backdrop-blur-xl sm:p-5">
               <div className="rounded-[1.25rem] border border-border bg-background/90 p-4 sm:p-6">

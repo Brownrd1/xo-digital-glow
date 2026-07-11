@@ -6,10 +6,42 @@ import Process from "@/components/Process";
 import Results from "@/components/Results";
 import HeroImage from "@/components/HeroImage";
 import FAQ from "@/components/FAQ";
+import { faqs } from "@/content/faqs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://xodigital.systems/#organization",
+        name: "XO Digital Systems",
+        url: "https://xodigital.systems/",
+        email: "admin@xo.systems.com",
+        description: "A product company building connected commerce software for complex buying journeys.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://xodigital.systems/#website",
+        url: "https://xodigital.systems/",
+        name: "XO Digital Systems",
+        publisher: { "@id": "https://xodigital.systems/#organization" },
+        inLanguage: "en",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://xodigital.systems/#faq",
+        mainEntity: faqs.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
       <Helmet>
@@ -31,6 +63,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="XO Digital Systems | Connected Commerce Software" />
         <meta name="twitter:description" content="Connected ecommerce software for businesses that have outgrown basic checkout." />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

@@ -330,6 +330,26 @@ const LifecycleShowcase = () => {
 
 
 const XoWp = () => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://xodigital.systems/xo-wp#software",
+    name: "XO for WooCommerce",
+    alternateName: "XO-WP",
+    url: "https://xodigital.systems/xo-wp",
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "WooCommerce checkout and B2B commerce software",
+    operatingSystem: "WordPress with WooCommerce",
+    isAccessibleForFree: true,
+    description: "A WooCommerce checkout and B2B commerce product connecting quotation requests, managed workflows on paid plans, shipping decisions, customer self-service, payments, and commercial visibility.",
+    publisher: {
+      "@type": "Organization",
+      "@id": "https://xodigital.systems/#organization",
+      name: "XO Digital Systems",
+      url: "https://xodigital.systems/",
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -344,6 +364,7 @@ const XoWp = () => {
           property="og:description"
           content="One plugin. Branded checkout, quote-to-invoice lifecycle, shipping intelligence, and AI business insights — inside your existing WooCommerce store."
         />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">

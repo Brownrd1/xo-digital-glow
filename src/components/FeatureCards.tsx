@@ -1,57 +1,50 @@
-import { 
-  Globe, 
-  Code2, 
-  TrendingUp, 
-  Search, 
-  Users, 
-  BarChart3 
-} from "lucide-react";
+import { LayoutTemplate, Workflow, Truck, Users, BarChart3, Blocks } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const features = [
   {
-    icon: Globe,
-    title: "Build & rebuild ecommerce websites",
-    description: "Modern, fast, conversion-optimised storefronts built on the best platforms.",
+    icon: LayoutTemplate,
+    title: "Modern buying experiences",
+    description: "Flexible, branded checkout journeys designed for the way each business sells.",
   },
   {
-    icon: Code2,
-    title: "Custom software & systems",
-    description: "Bespoke integrations, automations, and tools that connect your business.",
+    icon: Workflow,
+    title: "Connected commercial workflows",
+    description: "Bring checkout, quoting, approval, payment, and fulfilment into one coherent journey.",
   },
   {
-    icon: TrendingUp,
-    title: "Marketing that drives revenue",
-    description: "Google Ads, paid social, and performance campaigns built to scale.",
-  },
-  {
-    icon: Search,
-    title: "SEO built for ecommerce",
-    description: "Technical SEO, content strategy, and link building that moves rankings.",
+    icon: Truck,
+    title: "Complex order handling",
+    description: "Support collection, delivery rules, uncertain freight, and business-specific order decisions.",
   },
   {
     icon: Users,
-    title: "Conversion & customer behaviour",
-    description: "CRO audits, A/B testing, and UX improvements based on real data.",
+    title: "Customer self-service",
+    description: "Give buyers a clear place to review, accept, pay, and follow their commercial activity.",
   },
   {
     icon: BarChart3,
-    title: "Data + AI guided decisions",
-    description: "Analytics, dashboards, and AI insights that turn data into action.",
+    title: "Revenue visibility",
+    description: "Understand the performance of customer journeys and the opportunities needing attention.",
+  },
+  {
+    icon: Blocks,
+    title: "Built to adapt",
+    description: "A commerce platform designed to grow with changing channels, workflows, and customer needs.",
   },
 ];
 
 const FeatureCards = () => {
   return (
-    <section id="services" className="py-24 md:py-32 relative">
+    <section id="platform" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            What we do
+            What XO Commerce connects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            End-to-end ecommerce services that connect strategy, technology, and growth.
+            One platform direction for the moments between customer intent and completed revenue.
           </p>
         </div>
 

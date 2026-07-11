@@ -13,23 +13,23 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>XO Digital Systems | Modern WooCommerce Commerce Systems</title>
+        <title>XO Digital Systems | Connected Commerce Software</title>
         <meta 
           name="description" 
-          content="XO Digital Systems creates connected ecommerce software for complex buying journeys, including XO-WP for modern WooCommerce checkout and B2B commerce." 
+          content="XO Digital Systems is building XO Commerce, connected software for complex buying journeys. Available first through XO for WooCommerce." 
         />
         <meta name="keywords" content="WooCommerce checkout, B2B ecommerce, WooCommerce quotes, ecommerce software, XO-WP" />
         <link rel="canonical" href="https://xodigital.systems" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="XO Digital Systems | Modern WooCommerce Commerce Systems" />
+        <meta property="og:title" content="XO Digital Systems | Connected Commerce Software" />
         <meta property="og:description" content="Connected ecommerce software for businesses that have outgrown basic checkout." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://xodigital.systems" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="XO Digital Systems | Modern WooCommerce Commerce Systems" />
+        <meta name="twitter:title" content="XO Digital Systems | Connected Commerce Software" />
         <meta name="twitter:description" content="Connected ecommerce software for businesses that have outgrown basic checkout." />
       </Helmet>
 

@@ -3,15 +3,15 @@ import logoMark from "@/assets/logo-mark.svg";
 
 const footerLinks = {
   company: [
-    { label: "About", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Platform", href: "/#platform" },
+    { label: "Company", href: "/#contact" },
+    { label: "Early access", href: "/#contact" },
   ],
   services: [
-    { label: "Ecommerce Development", href: "#services" },
-    { label: "Custom Software", href: "#services" },
-    { label: "Marketing & Ads", href: "#services" },
-    { label: "SEO", href: "#services" },
+    { label: "XO for WooCommerce", href: "/xo-wp" },
+    { label: "Checkout", href: "/xo-wp#how-it-works" },
+    { label: "B2B workflows", href: "/xo-wp#how-it-works" },
+    { label: "Plans", href: "/xo-wp#pricing" },
   ],
   helpful: [
     { label: "FAQ", href: "#faq" },
@@ -59,8 +59,7 @@ const Footer = () => {
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">
-              We build and optimise ecommerce platforms using software, marketing, 
-              data, and applied AI. Systems that perform.
+              XO Digital Systems is building connected commerce software for businesses with complex buying journeys.
             </p>
 
             {/* Social Links */}
@@ -97,7 +96,7 @@ const Footer = () => {
 
           {/* Services Links */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>

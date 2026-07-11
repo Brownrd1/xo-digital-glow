@@ -333,13 +333,13 @@ const XoWp = () => {
   return (
     <>
       <Helmet>
-        <title>XO-WP | B2B checkout, quoting & order management for WooCommerce</title>
+        <title>XO for WooCommerce | Connected B2B Commerce</title>
         <meta
           name="description"
           content="XO-WP turns a WooCommerce store into a professional B2B quoting and order management system — branded checkout, smart shipping, full document lifecycle and AI insights."
         />
         <link rel="canonical" href="https://xodigital.systems/xo-wp" />
-        <meta property="og:title" content="XO-WP | B2B checkout & quoting for WooCommerce" />
+        <meta property="og:title" content="XO for WooCommerce | Connected B2B Commerce" />
         <meta
           property="og:description"
           content="One plugin. Branded checkout, quote-to-invoice lifecycle, shipping intelligence, and AI business insights — inside your existing WooCommerce store."
@@ -367,9 +367,9 @@ const XoWp = () => {
                   className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6 opacity-0 animate-fade-in"
                   style={{ animationDelay: "0.1s" }}
                 >
-                  <span className="text-foreground">B2B checkout,</span>
+                  <span className="text-foreground">XO for WooCommerce.</span>
                   <br />
-                  <span className="gradient-text">rebuilt for WooCommerce.</span>
+                  <span className="gradient-text">B2B commerce, connected.</span>
                 </h1>
 
                 <p

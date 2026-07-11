@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+const legacyFaqs = [
   {
     question: "What types of businesses do you work with?",
     answer: "We specialise in ecommerce businesses of all sizes—from growing DTC brands to established retailers looking to scale. If you sell online and want to grow smarter, we can help.",
@@ -29,6 +29,33 @@ const faqs = [
   {
     question: "What makes XO Digital Systems different?",
     answer: "We combine deep technical expertise with marketing strategy and AI capabilities. We don't just build—we build to grow. Our systems thinking approach means everything connects.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is XO Digital Systems?",
+    answer: "XO Digital Systems is the company building XO Commerce: connected software for businesses with more complex buying and operational journeys.",
+  },
+  {
+    question: "What is available today?",
+    answer: "Our first product is XO for WooCommerce, currently in development and opening through limited early access. It brings the XO Commerce direction to WooCommerce stores.",
+  },
+  {
+    question: "Does XO replace WooCommerce?",
+    answer: "No. XO works with WooCommerce and extends the customer and merchant journey around checkout, quoting, payment, customer self-service, and commercial visibility.",
+  },
+  {
+    question: "Who is XO for WooCommerce designed for?",
+    answer: "It is designed for businesses that have outgrown a basic retail checkout, particularly B2B merchants managing formal quotes, complex delivery, repeat customers, or multi-stage order decisions.",
+  },
+  {
+    question: "Is XO a service agency?",
+    answer: "XO is a product company. We can support implementation and commerce engineering where adoption requires it, but services exist to help businesses use the platform successfully.",
+  },
+  {
+    question: "How can I evaluate the product?",
+    answer: "Join the early-access conversation. We are working with a limited number of suitable WooCommerce businesses while development and real-world testing continue.",
   },
 ];
 

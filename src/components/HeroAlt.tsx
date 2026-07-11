@@ -19,7 +19,7 @@ const HeroAlt = () => {
           <div className="min-w-0 max-w-3xl">
             <div className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary sm:text-xs sm:tracking-[0.18em]">
               <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary))]" />
-              Building the future of WooCommerce
+              Introducing XO Commerce
             </div>
 
             <h1 className="text-balance text-[clamp(2.75rem,7vw,5.75rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground">
@@ -30,13 +30,13 @@ const HeroAlt = () => {
             </h1>
 
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-              XO Digital Systems creates connected ecommerce software for complex buying journeys—starting with XO-WP, our modern checkout and B2B revenue platform for WooCommerce.
+              XO Digital Systems is building XO Commerce: connected software for complex buying journeys. Our first product brings the platform to WooCommerce.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button variant="hero" size="xl" asChild>
                 <a href="/xo-wp">
-                  Explore XO-WP
+                  Explore XO for WooCommerce
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -46,7 +46,7 @@ const HeroAlt = () => {
             </div>
 
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["Built for WooCommerce", "Seven checkout designs", "Free, Pro & Enterprise"].map((item) => (
+              {["WooCommerce first", "Seven checkout designs", "Free, Pro & Enterprise"].map((item) => (
                 <span key={item} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-primary" />
                   {item}
@@ -61,7 +61,7 @@ const HeroAlt = () => {
               <div className="rounded-[1.25rem] border border-border bg-background/90 p-4 sm:p-6">
                 <div className="flex items-center justify-between border-b border-border pb-4">
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">XO-WP</p>
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">XO Commerce</p>
                     <p className="mt-1 font-semibold text-foreground">Connected commerce journey</p>
                   </div>
                   <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">Built for real business</span>

@@ -4,20 +4,20 @@ const steps = [
   {
     icon: ClipboardCheck,
     step: "01",
-    title: "Audit & strategy",
-    description: "We dig into your current setup, identify gaps, and build a roadmap tailored to your goals.",
+    title: "Understand the journey",
+    description: "We map how your customers buy, where complexity enters, and what your current commerce setup cannot handle well.",
   },
   {
     icon: Wrench,
     step: "02",
-    title: "Build & integrate",
-    description: "From websites to custom systems, we design and develop solutions that work together seamlessly.",
+    title: "Connect the workflow",
+    description: "We configure the platform around your store, operations, brand, and customer experience.",
   },
   {
     icon: Rocket,
     step: "03",
-    title: "Optimise & scale",
-    description: "Continuous improvement through data, testing, and AI-guided decisions to fuel growth.",
+    title: "Improve with evidence",
+    description: "We use real commercial activity to refine the experience and help your team operate with greater clarity.",
   },
 ];
 
@@ -28,10 +28,10 @@ const Process = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            How we work
+            From platform to practice
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A proven process that takes you from where you are to where you want to be.
+            XO is software, supported by practical commerce implementation when your business needs it.
           </p>
         </div>
 

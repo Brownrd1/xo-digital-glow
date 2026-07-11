@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-image.png";
+import heroImage from "@/assets/hero-image.jpg";
 
 const HeroImage = () => {
   return (
@@ -13,6 +13,9 @@ const HeroImage = () => {
             <img
               src={heroImage}
               alt="XO Digital Systems - AI-powered ecommerce platform"
+              loading="lazy"
+              width={1920}
+              height={1278}
               className="relative z-10 w-full h-auto drop-shadow-2xl"
             />
           </div>

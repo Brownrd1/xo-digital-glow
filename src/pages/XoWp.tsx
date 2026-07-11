@@ -5,11 +5,10 @@ import { ArrowRight, ShieldCheck, Sparkles, FileText, Truck, LayoutTemplate, Wor
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import heroVisual from "@/assets/xowp-hero-visual.jpg";
-import orbitVisual from "@/assets/xowp-orbit.jpg";
+import orbitVisual from "@/assets/xowp-orbit-optimized.jpg";
 import networkVisual from "@/assets/xowp-network.jpg";
-import checkoutFlow from "@/assets/xowp-checkout-flow.png";
-import checkoutHero from "@/assets/xowp-checkout-hero.png";
+import checkoutFlow from "@/assets/xowp-checkout-flow.jpg";
+import checkoutHero from "@/assets/xowp-checkout-hero.jpg";
 
 const legacyPillars = [
   {
@@ -510,13 +509,13 @@ const XoWp = () => {
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                     Your customers never feel like they've left your business — because they haven't.
-                    Every pixel matches your brand, while we run the secure infrastructure underneath.
+                    The experience stays aligned with your brand while XO handles the connected commerce workflow.
                   </p>
                   <ul className="space-y-3 text-foreground/80">
                     {[
                       "Your colours, fonts, and logo on every screen",
-                      "Six flexible checkout layouts",
-                      "Secure, PCI-grade infrastructure handled for you",
+                      "Seven flexible checkout design families",
+                      "Payment details handled through configured payment providers",
                       "Trust messaging aligned to your tone of voice",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-3">

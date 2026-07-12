@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
-import XoWp from "./pages/XoWp";
+import XoWp from "./pages/XoWpV2";
 import Privacy from "./pages/Privacy";
 import TrustSupport from "./pages/TrustSupport";
 import NotFound from "./pages/NotFound";

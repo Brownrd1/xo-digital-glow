@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Check, ChevronRight, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 import "@/styles/xo-editorial.css";
 
@@ -9,48 +8,6 @@ const journey = [
   ["02", "Sell the way you need", "Keep ordinary ecommerce orders simple. Add quotation and delivery workflows where the business requires them."],
   ["03", "Grow without rebuilding", "Add customer self-service, analytics, recovery and intelligence as the store becomes more demanding."],
 ] as const;
-
-const checkoutDirections = [
-  { id: "meridian", name: "Meridian", note: "Editorial split checkout" },
-  { id: "corporate", name: "Clean Corporate", note: "Structured and direct" },
-  { id: "luxury", name: "Dark Luxury", note: "High-contrast premium" },
-] as const;
-
-type CheckoutDirection = typeof checkoutDirections[number]["id"];
-
-const CheckoutPreview = ({ direction, compact = false }: { direction: CheckoutDirection; compact?: boolean }) => (
-  <div className={`xo-checkout xo-checkout--${direction} ${compact ? "xo-checkout--compact" : ""}`} aria-label={`Representative ${direction} checkout composition`}>
-    <div className="xo-checkout__topbar">
-      <div className="xo-checkout__sample-logo">NORTH / CO</div>
-      <span>Secure checkout</span>
-    </div>
-    <div className="xo-checkout__steps" aria-hidden="true">
-      <span className="is-active">01 Review</span><span>02 Details</span><span>03 Delivery</span><span>04 Payment</span>
-    </div>
-    <div className="xo-checkout__body">
-      <div className="xo-checkout__form">
-        <small>STEP 02 OF 04</small>
-        <h3>Where should we send your order?</h3>
-        <div className="xo-checkout__fields" aria-hidden="true">
-          <div><span>First name</span><strong>Amelia</strong></div>
-          <div><span>Last name</span><strong>Naidoo</strong></div>
-          <div className="is-wide"><span>Street address</span><strong>18 Loop Street</strong></div>
-          <div><span>City</span><strong>Cape Town</strong></div>
-          <div><span>Postcode</span><strong>8001</strong></div>
-        </div>
-        <button type="button" tabIndex={-1}>Continue to delivery <ArrowRight aria-hidden="true" /></button>
-      </div>
-      <aside className="xo-checkout__summary">
-        <small>YOUR ORDER</small>
-        <div><span>Canvas weekender</span><strong>R 1,250</strong></div>
-        <div><span>Leather travel tag</span><strong>R 320</strong></div>
-        <div><span>Delivery</span><strong>Calculated next</strong></div>
-        <div className="is-total"><span>Total</span><strong>R 1,570</strong></div>
-      </aside>
-    </div>
-    <p className="xo-checkout__caption">Representative composition based on a current XO checkout family. Final application capture in preparation.</p>
-  </div>
-);
 
 const tiers = [
   {
@@ -102,7 +59,6 @@ const questions = [
 ] as const;
 
 const XoWpV2 = () => {
-  const [checkoutDirection, setCheckoutDirection] = useState<CheckoutDirection>("meridian");
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -155,12 +111,21 @@ const XoWpV2 = () => {
             <h1>A WooCommerce checkout that finally looks like your store.</h1>
             <p className="xo-e__lede">Replace the basic WooCommerce checkout with a branded quick or guided buying experience. Start there, then add quotation, delivery, customer and growth tools as your store needs more.</p>
             <div className="xo-e__actions">
-              <a className="xo-e__button xo-e__button--primary" href="/#contact">Request early access <ArrowRight aria-hidden="true" /></a>
-              <a className="xo-e__button xo-e__button--secondary" href="#workflow">See the workflow</a>
+              <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">Try it with your brand <ArrowRight aria-hidden="true" /></a>
+              <a className="xo-e__button xo-e__button--secondary" href="/#contact">Request early access</a>
             </div>
           </div>
 
-          <CheckoutPreview direction="meridian" compact />
+          <div className="xo-e__hero-story" aria-label="What the XO checkout demo lets you explore">
+            <p>Make it yours</p>
+            <ol>
+              <li><span>01</span><strong>Add your business name, logo and colours</strong></li>
+              <li><span>02</span><strong>Compare all seven real checkout designs</strong></li>
+              <li><span>03</span><strong>Test guided, quick and payment journeys</strong></li>
+              <li><span>04</span><strong>See shipping and discounts in context</strong></li>
+            </ol>
+            <a href="/checkout-demo">Open the live checkout studio <ArrowRight aria-hidden="true" /></a>
+          </div>
         </section>
 
         <section className="xo-e__facts" aria-label="Current product facts">
@@ -196,27 +161,28 @@ const XoWpV2 = () => {
           </ol>
         </section>
 
-        <section className="xo-e__proof xo-e__checkout-showcase">
+        <section className="xo-e__demo-section">
           <div className="xo-e__proof-copy">
-            <p className="xo-e__kicker">Make checkout part of the brand</p>
-            <h2>Not another default WooCommerce checkout.</h2>
-            <p>XO currently includes seven checkout design families, each supporting responsive buying journeys. Explore three representative directions here; the final gallery will use captures from the polished application build.</p>
-            <div className="xo-e__direction-picker" aria-label="Representative checkout directions">
-              {checkoutDirections.map((direction) => (
-                <button
-                  key={direction.id}
-                  type="button"
-                  className={checkoutDirection === direction.id ? "is-active" : ""}
-                  aria-pressed={checkoutDirection === direction.id}
-                  onClick={() => setCheckoutDirection(direction.id)}
-                >
-                  <strong>{direction.name}</strong><span>{direction.note}</span>
-                </button>
-              ))}
-            </div>
-            <a href="/#contact">Ask to see the current product <ExternalLink aria-hidden="true" /></a>
+            <p className="xo-e__kicker">The product, not an illustration</p>
+            <h2>Put your brand into a real XO checkout.</h2>
+            <p>This interactive preview uses the same seven checkout renderers being developed for XO. Add your identity, switch journeys and test commercial states without connecting a store.</p>
+            <ul className="xo-e__demo-points">
+              <li><Check aria-hidden="true" /> Your logo stays in this browser preview</li>
+              <li><Check aria-hidden="true" /> No WordPress account or store connection required</li>
+              <li><Check aria-hidden="true" /> Safe sample products and customer information</li>
+            </ul>
+            <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">Personalise the full demo <ArrowRight aria-hidden="true" /></a>
           </div>
-          <CheckoutPreview direction={checkoutDirection} />
+          <div className="xo-e__demo-frame-shell">
+            <div className="xo-e__demo-frame-bar"><span>XO checkout studio</span><strong>Interactive product preview</strong></div>
+            <iframe
+              className="xo-e__demo-frame"
+              src="/xo-template-demo/template-demo.html"
+              title="Interactive XO checkout template preview"
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin"
+            />
+          </div>
         </section>
 
         <section className="xo-e__protection">

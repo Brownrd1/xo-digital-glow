@@ -9,9 +9,9 @@ const footerLinks = {
   ],
   services: [
     { label: "XO for WooCommerce", href: "/xo-wp" },
-    { label: "Checkout", href: "/xo-wp#how-it-works" },
-    { label: "B2B workflows", href: "/xo-wp#how-it-works" },
-    { label: "Plans", href: "/xo-wp#pricing" },
+    { label: "Checkout studio", href: "/checkout-demo" },
+    { label: "Commerce workflow", href: "/xo-wp#workflow" },
+    { label: "Plans", href: "/xo-wp#plans" },
   ],
   helpful: [
     { label: "FAQ", href: "/#faq" },

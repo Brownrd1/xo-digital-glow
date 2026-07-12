@@ -1,13 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, ArrowRight, LockKeyhole } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import logoMark from "@/assets/logo-mark.svg";
 import "@/styles/xo-editorial.css";
 
 const CheckoutDemo = () => (
   <div className="xo-e xo-demo-page">
     <Helmet>
-      <title>XO Checkout Studio | Try Your Brand</title>
-      <meta name="description" content="Preview your business name, logo and colours across the real XO for WooCommerce checkout designs." />
+      <title>XO Checkout Gallery | Real WooCommerce Design Directions</title>
+      <meta name="description" content="Explore curated captures from the genuine XO for WooCommerce checkout design system using fictional sample branding." />
       <link rel="canonical" href="https://xodigital.systems/checkout-demo" />
       <meta name="robots" content="index, follow" />
     </Helmet>
@@ -27,27 +27,33 @@ const CheckoutDemo = () => (
     <main id="checkout-studio" tabIndex={-1}>
       <section className="xo-demo-page__intro">
         <div>
-          <p className="xo-e__kicker">Interactive XO product preview</p>
-          <h1>See your store inside the checkout.</h1>
+          <p className="xo-e__kicker">XO product gallery</p>
+          <h1>See what a branded checkout can become.</h1>
         </div>
         <div>
-          <p>Add your business name, logo and colours. Then compare the seven real design families across guided checkout, quick checkout and payment views.</p>
-          <p className="xo-demo-page__privacy"><LockKeyhole aria-hidden="true" /> Your logo is read locally for this preview. It is not uploaded or saved by XO.</p>
+          <p>Explore selected checkout, delivery and payment moments created from the real XO design system. Every name, logo, product and customer detail shown here is fictional.</p>
+          <p className="xo-demo-page__privacy"><Check aria-hidden="true" /> Curated product captures only. No store, customer account or payment system is connected.</p>
         </div>
       </section>
 
-      <div className="xo-demo-page__frame-shell">
-        <iframe
-          className="xo-demo-page__frame"
-          src="/xo-template-demo/template-demo.html"
-          title="XO checkout studio"
-          sandbox="allow-scripts allow-same-origin"
-        />
-      </div>
+      <section className="xo-demo-page__gallery" aria-label="XO checkout design gallery">
+        <figure>
+          <img src="/images/checkout-proof/clean-corporate.webp" alt="Clean Corporate guided checkout with Your Company and Your Logo sample branding" width="1440" height="1000" />
+          <figcaption><span>01</span><div><strong>Clean Corporate</strong><p>A structured guided checkout with clear hierarchy and a persistent order summary.</p></div></figcaption>
+        </figure>
+        <figure>
+          <img src="/images/checkout-proof/meridian-delivery.webp" alt="Meridian delivery checkout with Your Company and Your Logo sample branding" loading="lazy" width="1440" height="1000" />
+          <figcaption><span>02</span><div><strong>Meridian</strong><p>An editorial checkout direction showing collection and delivery choices in context.</p></div></figcaption>
+        </figure>
+        <figure>
+          <img src="/images/checkout-proof/dark-luxury-payment.webp" alt="Dark Luxury payment view with Your Company sample branding" loading="lazy" width="1440" height="1000" />
+          <figcaption><span>03</span><div><strong>Focused payment</strong><p>A restrained payment moment with order totals, payment paths and trust language kept visible.</p></div></figcaption>
+        </figure>
+      </section>
 
       <section className="xo-demo-page__next">
-        <div><p className="xo-e__kicker">What you are seeing</p><h2>Real checkout renderers. Safe sample commerce data.</h2></div>
-        <div><p>The studio is an isolated product preview—not a connected WooCommerce checkout. It demonstrates the design system and buyer states without accessing a store, account, payment provider or customer record.</p><a className="xo-e__button xo-e__button--primary" href="/#contact">Discuss early access <ArrowRight aria-hidden="true" /></a></div>
+        <div><p className="xo-e__kicker">What you are seeing</p><h2>Real product direction. Carefully limited public proof.</h2></div>
+        <div><p>XO currently has seven checkout design families. This gallery intentionally shows selected customer-facing outcomes rather than publishing the underlying renderer, configuration tools or connected application.</p><a className="xo-e__button xo-e__button--primary" href="/#contact">Discuss early access <ArrowRight aria-hidden="true" /></a></div>
       </section>
     </main>
   </div>

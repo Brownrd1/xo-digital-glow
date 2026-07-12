@@ -146,6 +146,12 @@
 .xo-e__demo-frame-bar { min-height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 16px; color: #fff; background: var(--graphite); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
 .xo-e__demo-frame-bar strong { color: #abb7bf; font-size: 9px; }
 .xo-e__demo-frame { display: block; width: 100%; height: 690px; border: 0; background: #fff; }
+.xo-e__proof-stack { display: grid; gap: 24px; min-width: 0; }
+.xo-e__proof-stack figure { margin: 0; overflow: hidden; background: #fff; border: 1px solid #aeb4b8; box-shadow: 12px 12px 0 #cbd0cd; }
+.xo-e__proof-stack figure:nth-child(2) { width: 88%; margin-left: auto; }
+.xo-e__proof-stack img { display: block; width: 100%; height: auto; aspect-ratio: 1.44 / 1; object-fit: cover; object-position: top center; }
+.xo-e__proof-stack figcaption { display: flex; justify-content: space-between; gap: 18px; padding: 14px 16px; border-top: 1px solid var(--border); font-size: 11px; }
+.xo-e__proof-stack figcaption span { color: var(--muted); }
 
 .xo-demo-page { min-height: 100vh; background: var(--paper); }
 .xo-demo-page__intro { display: grid; grid-template-columns: 1fr .72fr; gap: clamp(50px, 9vw, 150px); padding: clamp(72px, 8vw, 110px) clamp(24px, 7vw, 110px) 60px; }
@@ -156,6 +162,13 @@
 .xo-demo-page__privacy svg { width: 16px; height: 16px; flex: none; }
 .xo-demo-page__frame-shell { margin: 0 clamp(16px, 3vw, 48px); overflow: hidden; background: #fff; border: 1px solid #aeb4b8; box-shadow: 12px 12px 0 #d1d4d2; }
 .xo-demo-page__frame { display: block; width: 100%; height: min(900px, 82vh); min-height: 680px; border: 0; background: #fff; }
+.xo-demo-page__gallery { display: grid; gap: clamp(36px, 6vw, 88px); padding: 0 clamp(24px, 5vw, 72px) clamp(80px, 10vw, 140px); }
+.xo-demo-page__gallery figure { margin: 0; overflow: hidden; background: #fff; border: 1px solid #aeb4b8; box-shadow: 14px 14px 0 #d1d4d2; }
+.xo-demo-page__gallery img { display: block; width: 100%; height: auto; }
+.xo-demo-page__gallery figcaption { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 24px 28px; border-top: 1px solid var(--border); }
+.xo-demo-page__gallery figcaption > span { color: var(--indigo); font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.xo-demo-page__gallery figcaption strong { display: block; margin-bottom: 6px; font-size: 18px; }
+.xo-demo-page__gallery figcaption p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .xo-demo-page__next { display: grid; grid-template-columns: 1fr .7fr; gap: clamp(50px, 9vw, 150px); padding: clamp(80px, 9vw, 120px) clamp(24px, 7vw, 110px); }
 .xo-demo-page__next h2 { max-width: 760px; font-size: clamp(36px, 4.5vw, 64px); line-height: 1.06; letter-spacing: -.04em; }
 .xo-demo-page__next > div:last-child { align-self: end; }
@@ -249,9 +262,13 @@
   .xo-e__proof, .xo-e__fit, .xo-e__cta { padding: 80px 20px; }
   .xo-e__demo-section { padding: 80px 16px; }
   .xo-e__demo-frame { height: 720px; }
+  .xo-e__proof-stack figure:nth-child(2) { width: 100%; }
   .xo-demo-page__intro, .xo-demo-page__next { padding: 70px 20px; }
   .xo-demo-page__frame-shell { margin: 0 8px; box-shadow: 6px 6px 0 #d1d4d2; }
   .xo-demo-page__frame { height: 760px; min-height: 0; }
+  .xo-demo-page__gallery { padding: 0 12px 80px; }
+  .xo-demo-page__gallery figure { box-shadow: 6px 6px 0 #d1d4d2; }
+  .xo-demo-page__gallery figcaption { grid-template-columns: 36px 1fr; padding: 18px; }
   .xo-checkout__body { grid-template-columns: 1fr; }
   .xo-checkout__summary { display: none; }
   .xo-checkout__steps span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

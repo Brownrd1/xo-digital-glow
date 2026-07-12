@@ -41,7 +41,7 @@ const HeroAlt = () => {
                 </a>
               </Button>
               <Button variant="hero-outline" size="xl" asChild>
-                <a href="/checkout-demo">Try your brand</a>
+                <a href="/checkout-demo">See checkout designs</a>
               </Button>
             </div>
 

@@ -9,6 +9,12 @@ const journey = [
   ["03", "Grow without rebuilding", "Add customer self-service, analytics, recovery and intelligence as the store becomes more demanding."],
 ] as const;
 
+const checkoutProofs = [
+  { src: "/images/checkout-proof/clean-corporate.webp", name: "Clean Corporate", note: "Structured guided checkout" },
+  { src: "/images/checkout-proof/meridian-delivery.webp", name: "Meridian", note: "Editorial delivery journey" },
+  { src: "/images/checkout-proof/dark-luxury-payment.webp", name: "Dark Luxury", note: "Focused payment experience" },
+] as const;
+
 const tiers = [
   {
     name: "Free",
@@ -111,7 +117,7 @@ const XoWpV2 = () => {
             <h1>A WooCommerce checkout that finally looks like your store.</h1>
             <p className="xo-e__lede">Replace the basic WooCommerce checkout with a branded quick or guided buying experience. Start there, then add quotation, delivery, customer and growth tools as your store needs more.</p>
             <div className="xo-e__actions">
-              <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">Try it with your brand <ArrowRight aria-hidden="true" /></a>
+              <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">See the checkout designs <ArrowRight aria-hidden="true" /></a>
               <a className="xo-e__button xo-e__button--secondary" href="/#contact">Request early access</a>
             </div>
           </div>
@@ -119,12 +125,12 @@ const XoWpV2 = () => {
           <div className="xo-e__hero-story" aria-label="What the XO checkout demo lets you explore">
             <p>Make it yours</p>
             <ol>
-              <li><span>01</span><strong>Add your business name, logo and colours</strong></li>
-              <li><span>02</span><strong>Compare all seven real checkout designs</strong></li>
-              <li><span>03</span><strong>Test guided, quick and payment journeys</strong></li>
-              <li><span>04</span><strong>See shipping and discounts in context</strong></li>
+              <li><span>01</span><strong>See checkout presented as part of a brand</strong></li>
+              <li><span>02</span><strong>Compare distinct XO design directions</strong></li>
+              <li><span>03</span><strong>Follow guided, delivery and payment moments</strong></li>
+              <li><span>04</span><strong>Picture the experience inside your store</strong></li>
             </ol>
-            <a href="/checkout-demo">Open the live checkout studio <ArrowRight aria-hidden="true" /></a>
+            <a href="/checkout-demo">View the checkout gallery <ArrowRight aria-hidden="true" /></a>
           </div>
         </section>
 
@@ -164,24 +170,22 @@ const XoWpV2 = () => {
         <section className="xo-e__demo-section">
           <div className="xo-e__proof-copy">
             <p className="xo-e__kicker">The product, not an illustration</p>
-            <h2>Put your brand into a real XO checkout.</h2>
-            <p>This interactive preview uses the same seven checkout renderers being developed for XO. Add your identity, switch journeys and test commercial states without connecting a store.</p>
+            <h2>Checkout experiences built from the real XO design system.</h2>
+            <p>These curated product captures use a fictional “Your Company” identity and safe sample commerce data. They show genuine XO checkout directions without exposing a connected store or the underlying system.</p>
             <ul className="xo-e__demo-points">
-              <li><Check aria-hidden="true" /> Your logo stays in this browser preview</li>
-              <li><Check aria-hidden="true" /> No WordPress account or store connection required</li>
-              <li><Check aria-hidden="true" /> Safe sample products and customer information</li>
+              <li><Check aria-hidden="true" /> Genuine current checkout designs</li>
+              <li><Check aria-hidden="true" /> Fictional company, logo and customer details</li>
+              <li><Check aria-hidden="true" /> No live store, account or payment connection</li>
             </ul>
-            <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">Personalise the full demo <ArrowRight aria-hidden="true" /></a>
+            <a className="xo-e__button xo-e__button--primary" href="/checkout-demo">Explore the product gallery <ArrowRight aria-hidden="true" /></a>
           </div>
-          <div className="xo-e__demo-frame-shell">
-            <div className="xo-e__demo-frame-bar"><span>XO checkout studio</span><strong>Interactive product preview</strong></div>
-            <iframe
-              className="xo-e__demo-frame"
-              src="/xo-template-demo/template-demo.html"
-              title="Interactive XO checkout template preview"
-              loading="lazy"
-              sandbox="allow-scripts allow-same-origin"
-            />
+          <div className="xo-e__proof-stack">
+            {checkoutProofs.slice(0, 2).map((proof) => (
+              <figure key={proof.name}>
+                <img src={proof.src} alt={`${proof.name} XO checkout using Your Company and Your Logo sample branding`} loading="lazy" width="1440" height="1000" />
+                <figcaption><strong>{proof.name}</strong><span>{proof.note}</span></figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 

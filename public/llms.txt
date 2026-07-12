@@ -5,7 +5,7 @@
 ## Current public product
 
 - [XO for WooCommerce](https://xodigital.systems/xo-wp): A branded WooCommerce checkout product that expands into quotation, delivery, customer self-service, payment, analytics, recovery, and commercial visibility. It is in active development and controlled early access.
-- [Interactive checkout studio](https://xodigital.systems/checkout-demo): An isolated preview of the seven real XO checkout design renderers. Visitors can apply a business name, local logo, colours, checkout mode, shipping state, and sample discount without connecting a store or account.
+- [Checkout design gallery](https://xodigital.systems/checkout-demo): Curated product captures from the genuine XO checkout design system using fictional “Your Company” and “Your Logo” branding and safe sample commerce data.
 
 ## What XO for WooCommerce does
 
@@ -13,7 +13,7 @@ XO for WooCommerce connects branded checkout, customer quotation requests, manag
 
 The Free plan is a useful WooCommerce-native branded checkout and quotation foundation. Pro adds all seven checkout designs, managed quote and invoice workflows, client self-service, live payments, advanced shipping, and analytics. Enterprise adds deeper recovery, automation, and customer intelligence.
 
-The checkout studio is product proof, not a live transaction surface. It uses safe sample commerce data and does not connect to WooCommerce, payment providers, customer records, XO accounts, or licensing systems. A logo selected in the studio is read locally by the visitor's browser and is not uploaded by XO.
+The checkout gallery is limited visual product proof, not a live transaction surface or interactive renderer. It does not connect to WooCommerce, payment providers, customer records, XO accounts, or licensing systems. The underlying template renderer and configuration tools are not published as part of the gallery.
 
 ## Availability
 

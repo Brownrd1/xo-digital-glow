@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed">
-              XO Digital Systems is building connected commerce software for businesses with complex buying journeys.
+              XO Digital Systems builds branded checkout and connected commerce software, available first through XO for WooCommerce.
             </p>
 
             <p className="text-sm text-muted-foreground">XO for WooCommerce is currently in controlled early access.</p>

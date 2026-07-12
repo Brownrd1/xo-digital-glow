@@ -23,14 +23,14 @@ const HeroAlt = () => {
             </div>
 
             <h1 className="w-full max-w-full break-words text-[clamp(2.6rem,7vw,5.75rem)] font-extrabold leading-[0.96] tracking-[-0.055em] text-foreground sm:text-balance">
-              Commerce systems for businesses that have
+              A better WooCommerce checkout.
               <span className="block bg-gradient-to-r from-primary via-indigo-300 to-sky-300 bg-clip-text text-transparent">
-                outgrown basic checkout.
+                A stronger commerce system behind it.
               </span>
             </h1>
 
             <p className="mt-7 w-full max-w-2xl break-words text-lg leading-relaxed text-muted-foreground sm:text-pretty md:text-xl">
-              XO Digital Systems is building XO Commerce: connected software for complex buying journeys. Our first product brings the platform to WooCommerce.
+              XO for WooCommerce gives stores a branded buying experience first, then adds quotation, delivery, customer and growth tools as the business needs more.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -41,7 +41,7 @@ const HeroAlt = () => {
                 </a>
               </Button>
               <Button variant="hero-outline" size="xl" asChild>
-                <a href="#contact">Talk to us</a>
+                <a href="/checkout-demo">Try your brand</a>
               </Button>
             </div>
 
@@ -70,8 +70,8 @@ const HeroAlt = () => {
                 <div className="grid gap-3 py-4 sm:grid-cols-3">
                   {[
                     { icon: ShoppingCart, label: "Modern checkout", detail: "Branded buying experience" },
-                    { icon: FileText, label: "Quote to payment", detail: "A connected B2B journey" },
-                    { icon: Truck, label: "Smarter delivery", detail: "Built for complex orders" },
+                    { icon: FileText, label: "Quotes when needed", detail: "Keep ordinary orders simple" },
+                    { icon: Truck, label: "Flexible delivery", detail: "Known, free or quoted shipping" },
                   ].map(({ icon: Icon, label, detail }) => (
                     <div key={label} className="rounded-xl border border-border bg-card p-4">
                       <Icon className="h-5 w-5 text-primary" strokeWidth={1.6} />

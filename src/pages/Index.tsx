@@ -20,7 +20,7 @@ const Index = () => {
         name: "XO Digital Systems",
         url: "https://xodigital.systems/",
         email: "admin@xo.systems.com",
-        description: "A product company building connected commerce software for complex buying journeys.",
+        description: "A product company building branded checkout and connected commerce software, available first through XO for WooCommerce.",
       },
       {
         "@type": "WebSite",
@@ -48,9 +48,9 @@ const Index = () => {
         <title>XO Digital Systems | Connected Commerce Software</title>
         <meta 
           name="description" 
-          content="XO Digital Systems is building XO Commerce, connected software for complex buying journeys. Available first through XO for WooCommerce." 
+          content="XO Digital Systems builds branded checkout and connected commerce software. Try XO for WooCommerce across seven real checkout designs."
         />
-        <meta name="keywords" content="WooCommerce checkout, B2B ecommerce, WooCommerce quotes, ecommerce software, XO-WP" />
+        <meta name="keywords" content="branded WooCommerce checkout, WooCommerce checkout design, WooCommerce quotes, ecommerce software, XO for WooCommerce" />
         <link rel="canonical" href="https://xodigital.systems" />
         
         {/* Open Graph */}

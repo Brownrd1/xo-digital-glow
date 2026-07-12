@@ -1,15 +1,56 @@
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, ChevronRight, ExternalLink } from "lucide-react";
+import { useState } from "react";
 import logoMark from "@/assets/logo-mark.svg";
 import "@/styles/xo-editorial.css";
 
 const journey = [
-  ["01", "Make it yours", "Choose a checkout design, apply the store brand and select a quick or guided buyer journey."],
-  ["02", "Keep buying simple", "Customers complete a clear, responsive checkout that remains connected to WooCommerce."],
-  ["03", "Choose the right path", "Use standard orders for ordinary sales and quotation workflows where the business requires them."],
-  ["04", "Handle delivery", "Apply straightforward shipping or expand into more advanced delivery and routing decisions."],
-  ["05", "Grow the operation", "Add customer self-service, analytics, recovery and intelligence as the store becomes more demanding."],
+  ["01", "Begin with checkout", "Choose a design, apply the store brand and give customers a clearer quick or guided buying experience."],
+  ["02", "Sell the way you need", "Keep ordinary ecommerce orders simple. Add quotation and delivery workflows where the business requires them."],
+  ["03", "Grow without rebuilding", "Add customer self-service, analytics, recovery and intelligence as the store becomes more demanding."],
 ] as const;
+
+const checkoutDirections = [
+  { id: "meridian", name: "Meridian", note: "Editorial split checkout" },
+  { id: "corporate", name: "Clean Corporate", note: "Structured and direct" },
+  { id: "luxury", name: "Dark Luxury", note: "High-contrast premium" },
+] as const;
+
+type CheckoutDirection = typeof checkoutDirections[number]["id"];
+
+const CheckoutPreview = ({ direction, compact = false }: { direction: CheckoutDirection; compact?: boolean }) => (
+  <div className={`xo-checkout xo-checkout--${direction} ${compact ? "xo-checkout--compact" : ""}`} aria-label={`Representative ${direction} checkout composition`}>
+    <div className="xo-checkout__topbar">
+      <div className="xo-checkout__sample-logo">NORTH / CO</div>
+      <span>Secure checkout</span>
+    </div>
+    <div className="xo-checkout__steps" aria-hidden="true">
+      <span className="is-active">01 Review</span><span>02 Details</span><span>03 Delivery</span><span>04 Payment</span>
+    </div>
+    <div className="xo-checkout__body">
+      <div className="xo-checkout__form">
+        <small>STEP 02 OF 04</small>
+        <h3>Where should we send your order?</h3>
+        <div className="xo-checkout__fields" aria-hidden="true">
+          <div><span>First name</span><strong>Amelia</strong></div>
+          <div><span>Last name</span><strong>Naidoo</strong></div>
+          <div className="is-wide"><span>Street address</span><strong>18 Loop Street</strong></div>
+          <div><span>City</span><strong>Cape Town</strong></div>
+          <div><span>Postcode</span><strong>8001</strong></div>
+        </div>
+        <button type="button" tabIndex={-1}>Continue to delivery <ArrowRight aria-hidden="true" /></button>
+      </div>
+      <aside className="xo-checkout__summary">
+        <small>YOUR ORDER</small>
+        <div><span>Canvas weekender</span><strong>R 1,250</strong></div>
+        <div><span>Leather travel tag</span><strong>R 320</strong></div>
+        <div><span>Delivery</span><strong>Calculated next</strong></div>
+        <div className="is-total"><span>Total</span><strong>R 1,570</strong></div>
+      </aside>
+    </div>
+    <p className="xo-checkout__caption">Representative composition based on a current XO checkout family. Final application capture in preparation.</p>
+  </div>
+);
 
 const tiers = [
   {
@@ -61,6 +102,7 @@ const questions = [
 ] as const;
 
 const XoWpV2 = () => {
+  const [checkoutDirection, setCheckoutDirection] = useState<CheckoutDirection>("meridian");
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -118,18 +160,7 @@ const XoWpV2 = () => {
             </div>
           </div>
 
-          <div className="xo-e__system-map" aria-label="XO for WooCommerce product progression">
-            <div className="xo-e__system-head">
-              <span>Current product</span>
-              <strong>XO for WooCommerce</strong>
-            </div>
-            <ol>
-              <li><span>01</span><div><strong>Branded checkout</strong><small>Seven design families</small></div></li>
-              <li><span>02</span><div><strong>Flexible buying</strong><small>Quick, guided, order and quote paths</small></div></li>
-              <li><span>03</span><div><strong>Connected growth</strong><small>Portal, analytics, recovery and intelligence</small></div></li>
-            </ol>
-            <p>WooCommerce remains the catalogue, inventory and core order foundation.</p>
-          </div>
+          <CheckoutPreview direction="meridian" compact />
         </section>
 
         <section className="xo-e__facts" aria-label="Current product facts">
@@ -165,18 +196,27 @@ const XoWpV2 = () => {
           </ol>
         </section>
 
-        <section className="xo-e__proof">
+        <section className="xo-e__proof xo-e__checkout-showcase">
           <div className="xo-e__proof-copy">
-            <p className="xo-e__kicker">Product evidence</p>
-            <h2>Seven checkout directions. One store identity.</h2>
-            <p>Real desktop and mobile captures are being prepared during the current product-polish pass. These positions are reserved for verified checkout designs and application interfaces—not generated concept artwork.</p>
+            <p className="xo-e__kicker">Make checkout part of the brand</p>
+            <h2>Not another default WooCommerce checkout.</h2>
+            <p>XO currently includes seven checkout design families, each supporting responsive buying journeys. Explore three representative directions here; the final gallery will use captures from the polished application build.</p>
+            <div className="xo-e__direction-picker" aria-label="Representative checkout directions">
+              {checkoutDirections.map((direction) => (
+                <button
+                  key={direction.id}
+                  type="button"
+                  className={checkoutDirection === direction.id ? "is-active" : ""}
+                  aria-pressed={checkoutDirection === direction.id}
+                  onClick={() => setCheckoutDirection(direction.id)}
+                >
+                  <strong>{direction.name}</strong><span>{direction.note}</span>
+                </button>
+              ))}
+            </div>
             <a href="/#contact">Ask to see the current product <ExternalLink aria-hidden="true" /></a>
           </div>
-          <div className="xo-e__proof-grid" aria-label="Product interface evidence being prepared">
-            <div><span>Checkout</span><strong>Seven design families</strong><small>Desktop + mobile gallery</small></div>
-            <div><span>Journey</span><strong>Quick and guided modes</strong><small>Responsive buyer flow</small></div>
-            <div><span>Operations</span><strong>Merchant and customer tools</strong><small>Paid-plan interface evidence</small></div>
-          </div>
+          <CheckoutPreview direction={checkoutDirection} />
         </section>
 
         <section className="xo-e__protection">

@@ -45,7 +45,7 @@ const TrustSupport = () => (
       <InfoSection title="Early-access support">
         <p>Early-access enquiries and active test deployments are reviewed personally. Support currently focuses on fit assessment, setup, troubleshooting, and structured feedback for participating stores.</p>
         <p><strong>No public response-time or uptime SLA is offered at this stage.</strong> Commercial support levels, service hours, escalation paths, and availability commitments will be published before general release.</p>
-        <p>For help or an access discussion, email <a href="mailto:admin@xo.systems.com">admin@xo.systems.com</a> or <Link to="/#contact">send an early-access enquiry</Link>.</p>
+        <p>For help or an access discussion, email <a href="mailto:admin@xo.systems.com">admin@xo.systems.com</a> or <Link to="/early-access">send an early-access enquiry</Link>.</p>
       </InfoSection>
 
       <InfoSection title="Responsible disclosure">

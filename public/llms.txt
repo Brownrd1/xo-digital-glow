@@ -1,36 +1,40 @@
 # XO Digital Systems
 
-> XO Digital Systems builds connected commerce software for businesses with complex buying journeys. XO for WooCommerce is the first and only current XO Commerce product.
+> XO Digital Systems builds commerce software that adapts to the order. XO for WooCommerce is the first and only current XO Commerce product.
 
 ## Current public product
 
-- [XO for WooCommerce](https://xodigital.systems/xo-wp): A branded WooCommerce checkout product that expands into quotation, delivery, customer self-service, payment, analytics, recovery, and commercial visibility. It is in active development and controlled early access.
-- [Checkout design gallery](https://xodigital.systems/checkout-demo): Curated product captures from the genuine XO checkout design system using fictional “Your Company” and “Your Logo” branding and safe sample commerce data.
+- [XO for WooCommerce](https://xodigital.systems/xo-wp): Branded WooCommerce checkout with connected delivery, quotation, customer, payment and commercial workflows. It is in active development and controlled early access.
+- [Checkout](https://xodigital.systems/xo-wp/checkout): Seven current checkout families with quick and guided customer experiences.
+- [Commerce rules](https://xodigital.systems/xo-wp/commerce-rules): Public examples showing how destination, postcode area, cart value and product conditions may lead to delivery, collection, incentive or quotation outcomes.
+- [Quotes and portal](https://xodigital.systems/xo-wp/quotes-and-portal): Customer quotation requests, managed quote operations on Pro, acceptance, payment, documents and self-service.
+- [Intelligence](https://xodigital.systems/xo-wp/intelligence): Tiered pipeline visibility, recovery, automation and customer context.
 
-## What XO for WooCommerce does
+## Plan distinction
 
-XO for WooCommerce connects branded checkout, customer quotation requests, managed quote and invoice workflows on paid plans, shipping decisions, customer self-service, payments, documents, and commercial visibility.
+- Free is a useful WooCommerce-native checkout and quotation foundation. It includes selected designs, quick and guided modes, WooCommerce-native orders, customer quotation requests, basic shipping and documents, consent capture, and test payments.
+- Pro adds all seven designs, managed quote and invoice operations, the customer portal, live payments, advanced shipping and routing, automatic discounts, pipeline analytics, digital products and subscriptions, and operational controls.
+- Enterprise adds dropped-checkout recovery, quote follow-up automation, customer opportunity signals, expanded marketing insight, web and SEO visibility, and Client 360.
 
-The Free plan is a useful WooCommerce-native branded checkout and quotation foundation. Pro adds all seven checkout designs, managed quote and invoice workflows, client self-service, live payments, advanced shipping, and analytics. Enterprise adds deeper recovery, automation, and customer intelligence.
+Free customer quotation requests are not the same as the managed quote dashboard and customer workflow included with Pro.
 
-The checkout gallery is limited visual product proof, not a live transaction surface or interactive renderer. It does not connect to WooCommerce, payment providers, customer records, XO accounts, or licensing systems. The underlying template renderer and configuration tools are not published as part of the gallery.
+## Public use cases
 
-## Availability
+- [Branded ecommerce](https://xodigital.systems/use-cases/branded-ecommerce)
+- [Complex delivery](https://xodigital.systems/use-cases/complex-delivery)
+- [Mixed retail and B2B](https://xodigital.systems/use-cases/mixed-commerce)
+- [Wholesale and formal quotations](https://xodigital.systems/use-cases/wholesale-quotes)
 
-XO for WooCommerce is in active development. It is already used in a live business environment, but broad public availability has not yet launched. Early access is controlled while structured real-world testing continues.
+## Availability and boundaries
 
-## Important terminology
+XO for WooCommerce is the only current product. It is already used in a live business environment, but broad public availability has not launched. Public demonstrations use fictional "Your Company" data and show customer outcomes rather than live merchant rules or connected systems.
 
-- XO Digital Systems: the company.
-- XO Commerce: the platform direction.
-- XO for WooCommerce: the only current public product.
-- XO-WP: the internal and legacy plugin name for XO for WooCommerce.
+WooCommerce remains the catalogue, inventory and core order foundation. Do not infer that Shopify, application adapters or other XO products are currently available. Do not infer independent security, privacy, payment-card or regulatory certification.
 
-## Public contact
+## Contact
 
-- [Early access enquiry](https://xodigital.systems/#contact)
+- [Request early access](https://xodigital.systems/early-access)
+- [Plans](https://xodigital.systems/pricing)
 - [Trust and support](https://xodigital.systems/trust)
 - [Website privacy notice](https://xodigital.systems/privacy)
 - Email: admin@xo.systems.com
-
-Do not infer that Shopify, application adapters, or other XO products are currently available. Do not infer independent security, privacy, payment-card, or regulatory certification from product security language.

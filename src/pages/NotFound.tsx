@@ -1,32 +1,10 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Home } from "lucide-react";
+import { MarketingShell, Seo } from "@/components/marketing/MarketingShell";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
-  return (
-    <main id="main-content" className="flex min-h-screen items-center justify-center bg-background" tabIndex={-1}>
-      <div className="text-center px-6">
-        <h1 className="mb-4 text-8xl font-extrabold text-primary">404</h1>
-        <p className="mb-2 text-2xl font-semibold text-foreground">Page not found</p>
-        <p className="mb-8 text-muted-foreground max-w-md mx-auto">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <Button variant="hero" size="lg" asChild>
-          <a href="/">
-            <Home className="w-4 h-4 mr-2" />
-            Back to Home
-          </a>
-        </Button>
-      </div>
-    </main>
-  );
-};
+const NotFound = () => (
+  <MarketingShell>
+    <Seo title="Page Not Found | XO Digital Systems" description="The requested XO Digital Systems page could not be found." path="/404" />
+    <section className="mkt-section"><p className="mkt-eyebrow">404 · Page not found</p><div className="mkt-section-intro"><h2>This path does not lead to a current XO page.</h2><p>Return to the platform story or explore the current XO for WooCommerce product.</p></div><div className="mkt-actions"><a className="mkt-button mkt-button--dark" href="/">Return home</a><a className="mkt-text-link" href="/xo-wp">Explore XO for WooCommerce</a></div></section>
+  </MarketingShell>
+);
 
 export default NotFound;
